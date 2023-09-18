@@ -1,41 +1,75 @@
 import React from "react";
+import ActiveRoute from "../../active_route/ActiveRoute";
 
 const NavBar = () => {
   return (
     <div className="bg-navbar min-h-[40px] flex flex-wrap justify-center">
-      <button className="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-red-500 hover:bg-[#044E71] flex-grow">
+      <ActiveRoute
+        to="/"
+        classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"
+      >
         প্রচ্ছদ
-      </button>
-      <button className="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-red-500 hover:bg-[#044E71] flex-grow">
+      </ActiveRoute>
+      <ActiveRoute
+        to="/authority"
+        classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"
+      >
         প্রশাসন
-      </button>
-      <button className="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-red-500 hover:bg-[#044E71] flex-grow">
+      </ActiveRoute>
+      <ActiveRoute
+        to="/student-info"
+        classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"
+      >
         শিক্ষার্থীদের তথ্য
-      </button>
-      <button className="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-red-500 hover:bg-[#044E71] flex-grow">
+      </ActiveRoute>
+      <ActiveRoute
+        to="/admission"
+        classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"
+      >
         ভর্তি
-      </button>
-      <button className="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-red-500 hover:bg-[#044E71] flex-grow">
+      </ActiveRoute>
+      <ActiveRoute
+        to="/download"
+        classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"
+      >
         ডাউনলোড
-      </button>
-      <button className="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-red-500 hover:bg-[#044E71] flex-grow">
+      </ActiveRoute>
+      <ActiveRoute
+        to="/routine"
+        classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"
+      >
         রুটিন
-      </button>
-      <button className="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-red-500 hover:bg-[#044E71] flex-grow">
+      </ActiveRoute>
+      <ActiveRoute
+        to="/notice"
+        classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"
+      >
         নোটিশ
-      </button>
-      <button className="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-red-500 hover:bg-[#044E71] flex-grow">
+      </ActiveRoute>
+      <ActiveRoute
+        to="/blog"
+        classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"
+      >
         ব্লগ
-      </button>
-      <button className="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-red-500 hover:bg-[#044E71] flex-grow">
+      </ActiveRoute>
+      <ActiveRoute
+        to="/gallery"
+        classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"
+      >
         গ্যালারী
-      </button>
-      <button className="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-red-500 hover:bg-[#044E71] flex-grow">
+      </ActiveRoute>
+      <ActiveRoute
+        to="/miscellaneous"
+        classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"
+      >
         বিভিন্ন তথ্য
-      </button>
-      <button className="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-red-500 hover:bg-[#044E71] flex-grow">
+      </ActiveRoute>
+      <ActiveRoute
+        to="/contact"
+        classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"
+      >
         যোগাযোগ
-      </button>
+      </ActiveRoute>
     </div>
   );
 };
