@@ -1,7 +1,7 @@
 import "./App.css";
 
 function App() {
-  return <div>Welcome</div>;
+  return <div>Welcome to auto deploy</div>;
 }
 
 export default App;
