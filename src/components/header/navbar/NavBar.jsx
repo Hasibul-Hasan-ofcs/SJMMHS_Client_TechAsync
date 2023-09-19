@@ -1,5 +1,5 @@
 import React from "react";
-import ActiveRoute from "../../active_route/ActiveRoute";
+import ActiveRoute from "./active_route/ActiveRoute";
 import { PiCaretDownFill } from "react-icons/pi";
 import style from "./css/navbar.module.css";
 import DropDown from "./dropdown/DropDown";
@@ -51,27 +51,34 @@ const NavBar = () => {
       >
         প্রচ্ছদ
       </ActiveRoute>
-      <ActiveRoute
-        to="/authority"
-        classes={`${style.dropdown_item} transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
-      >
-        প্রশাসন &nbsp;<PiCaretDownFill></PiCaretDownFill>
+      <div className={`${style.dropdown_item}`}>
+        <ActiveRoute
+          to="/authority"
+          classes={`transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
+        >
+          প্রশাসন &nbsp;<PiCaretDownFill></PiCaretDownFill>
+        </ActiveRoute>
         <DropDown items={authorityData.arr} to={authorityData.link}></DropDown>
-      </ActiveRoute>
-      <ActiveRoute
-        to="/student-info"
-        classes={`${style.dropdown_item} transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
-      >
-        শিক্ষার্থীদের তথ্য &nbsp; <PiCaretDownFill></PiCaretDownFill>
+      </div>
+      <div className={`${style.dropdown_item}`}>
+        <ActiveRoute
+          to="/student-info"
+          classes={`transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
+        >
+          শিক্ষার্থীদের তথ্য &nbsp; <PiCaretDownFill></PiCaretDownFill>
+        </ActiveRoute>
         <DropDown items={studentData.arr} to={studentData.link}></DropDown>
-      </ActiveRoute>
-      <ActiveRoute
-        to="/admission"
-        classes={`${style.dropdown_item} transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
-      >
-        ভর্তি &nbsp; <PiCaretDownFill></PiCaretDownFill>
+      </div>
+
+      <div className={`${style.dropdown_item}`}>
+        <ActiveRoute
+          to="/admission"
+          classes={`transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
+        >
+          ভর্তি &nbsp; <PiCaretDownFill></PiCaretDownFill>
+        </ActiveRoute>
         <DropDown items={admissionData.arr} to={admissionData.link}></DropDown>
-      </ActiveRoute>
+      </div>
       <ActiveRoute
         to="/download"
         classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"
@@ -96,23 +103,27 @@ const NavBar = () => {
       >
         ব্লগ
       </ActiveRoute>
-      <ActiveRoute
-        to="/gallery"
-        classes={`${style.dropdown_item} transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
-      >
-        গ্যালারী &nbsp;<PiCaretDownFill></PiCaretDownFill>
+      <div className={`${style.dropdown_item}`}>
+        <ActiveRoute
+          to="/gallery"
+          classes={`transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
+        >
+          গ্যালারী &nbsp;<PiCaretDownFill></PiCaretDownFill>
+        </ActiveRoute>
         <DropDown items={galleryData.arr} to={galleryData.link}></DropDown>
-      </ActiveRoute>
-      <ActiveRoute
-        to="/miscellaneous"
-        classes={`${style.dropdown_item} transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
-      >
-        বিভিন্ন তথ্য &nbsp; <PiCaretDownFill></PiCaretDownFill>
+      </div>
+      <div className={`${style.dropdown_item}`}>
+        <ActiveRoute
+          to="/miscellaneous"
+          classes={`transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
+        >
+          বিভিন্ন তথ্য &nbsp; <PiCaretDownFill></PiCaretDownFill>
+        </ActiveRoute>
         <DropDown
           items={miscellaneousData.arr}
           to={miscellaneousData.link}
         ></DropDown>
-      </ActiveRoute>
+      </div>
       <ActiveRoute
         to="/contact"
         classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"

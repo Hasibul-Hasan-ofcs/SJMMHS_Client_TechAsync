@@ -1,0 +1,15 @@
+.card_header_pink {
+  background-image: linear-gradient(120deg, #a63247 0%, #da526a 100%);
+}
+
+.card_header_green {
+  background-image: linear-gradient(120deg, #07894c 0%, #38ce86 100%);
+}
+
+.card_header_yellow {
+  background-image: linear-gradient(118deg, #985e04 0%, #d5901d 100%);
+}
+
+.card_header_blue {
+  background-image: linear-gradient(120deg, #1d77b2 0%, #4ca7e2 100%);
+}
