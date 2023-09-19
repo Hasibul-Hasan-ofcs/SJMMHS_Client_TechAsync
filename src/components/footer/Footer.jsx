@@ -5,17 +5,19 @@ import { FiChevronsRight } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <div className={`${style.footer} min-h-[350px] bg-[#3D4E60] relative`}>
-      <div className="container absolute top-0 left-1/2 -translate-x-1/2 min-h-[350px] w-full pt-10 z-10">
-        <div className="flex items-center ">
-          <div className="w-1/4 box-border flex justify-start">
+    <div
+      className={`${style.footer} min-h-[950px] md:min-h-[500px] lg:min-h-[350px] bg-[#3D4E60] relative`}
+    >
+      <div className="container absolute top-0 left-1/2 -translate-x-1/2 h-full w-full pt-10 z-10">
+        <div className="flex gap-y-8 lg:gap-y-0 items-center flex-wrap">
+          <div className="w-full px-6 lg:px-0 md:w-2/4 lg:w-1/4 box-border flex justify-start">
             <img
               src="/png/logo-903x1024.png"
               alt="school logo"
               className="h-[220px] w-auto"
             />
           </div>
-          <div className="w-1/4 text-white">
+          <div className="w-full px-6 lg:px-0 pt-16 md:pt-0 md:w-2/4 lg:w-1/4 text-white">
             <p>School Address</p>
             <p>
               Sattar Jute Mills Model High School, Kanchan, Rupgonj,
@@ -25,7 +27,7 @@ const Footer = () => {
             <p>Mail: info@sjmmhs.com</p>
             <p>Web : sjmmhs.com</p>
           </div>
-          <div className="w-1/4 flex flex-col gap-2">
+          <div className="w-full px-6 lg:px-0 md:w-2/4 lg:w-1/4 flex flex-col gap-2">
             <Link
               className={`flex items-center gap-2 transition_common ${style.footer_link}`}
             >
@@ -87,7 +89,7 @@ const Footer = () => {
               </span>{" "}
             </Link>
           </div>
-          <div className="w-1/4 flex flex-col gap-2">
+          <div className="w-full px-6 lg:px-0 md:w-2/4 lg:w-1/4 flex flex-col gap-2">
             <Link
               className={`flex items-center gap-2 transition_common ${style.footer_link}`}
             >
@@ -150,7 +152,7 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="flex items-center justify-center py-5">
+        <div className="flex items-center justify-center pt-7 pb-2">
           <img src="/png/deshiit.png" alt="IT logo" className="h-[50px]" />
         </div>
       </div>
