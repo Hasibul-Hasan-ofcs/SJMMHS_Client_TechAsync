@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./css/mc.module.css";
 import { FaCheck } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const MiscellaneousCards = ({ title, listArr, imgLink, color }) => {
   return (
@@ -19,14 +20,18 @@ const MiscellaneousCards = ({ title, listArr, imgLink, color }) => {
           <img src={imgLink} alt="miscellaneous image" />
         </div>
         <div className="w-[55%] md:w-[60%]">
-          <ul className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2">
             {listArr.map((el, indx) => (
-              <li className="flex items-center gap-2 text-[13px]" key={indx}>
+              <Link
+                to="/"
+                className="flex items-center gap-2 text-[13px] hover:text-blue-800 transition_common"
+                key={indx}
+              >
                 <FaCheck></FaCheck>
                 {el}
-              </li>
+              </Link>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </div>

@@ -4,7 +4,10 @@ import NavBar from "./navbar/NavBar";
 
 const Header = () => {
   return (
-    <div className="container px-2 md:px-3 mx-auto shadow_common p-3">
+    <div
+      className="container px-2 md:px-3 mx-auto shadow_common p-3"
+      id="top-main"
+    >
       <TitleContainer></TitleContainer>
       <NavBar></NavBar>
     </div>

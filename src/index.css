@@ -12,6 +12,7 @@ body,
 html {
   font-family: "SolaimanLipi";
   color: rgb(30, 41, 59);
+  scroll-behavior: smooth;
 }
 
 .shadow_common {

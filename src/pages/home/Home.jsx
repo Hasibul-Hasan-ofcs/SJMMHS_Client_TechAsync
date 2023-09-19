@@ -13,6 +13,8 @@ import {
 } from "./../../data/miscellaneous/MiscellaneousCardData";
 import ShortCutNavigatorHome from "../../components/shortcut_nav_home/ShortCutNavigatorHome";
 import NoticeBoard from "../../components/notice_board/NoticeBoard";
+import OfficialLinks from "../../components/official_links/OfficialLinks";
+import ImportantInformation from "../../components/important_information/ImportantInformation";
 
 const Home = () => {
   SetPageTitle("Sattar Jute Mills Model High School");
@@ -21,8 +23,8 @@ const Home = () => {
     <div className="container my-4 p-2 md:p-3 mx-auto shadow-xl border">
       <IntroCarousel></IntroCarousel>
       <SpecialAnnouncements></SpecialAnnouncements>
-      <div className="flex">
-        <div className="w-full md:w-[75%] pe-2">
+      <div className="flex flex-wrap">
+        <div className="w-full lg:w-[75%] lg:pe-2 pb-4">
           <InstitutionHistory></InstitutionHistory>
           <PrincipalsMessage></PrincipalsMessage>
           <div className="flex flex-wrap gap-4">
@@ -52,9 +54,11 @@ const Home = () => {
             ></MiscellaneousCards>
           </div>
         </div>
-        <div className="w-full md:w-[25%] ps-2 flex flex-col gap-5">
+        <div className="w-full lg:w-[25%] lg:ps-2 flex flex-col gap-5">
           <ShortCutNavigatorHome></ShortCutNavigatorHome>
           <NoticeBoard></NoticeBoard>
+          <OfficialLinks></OfficialLinks>
+          <ImportantInformation></ImportantInformation>
         </div>
       </div>
     </div>
