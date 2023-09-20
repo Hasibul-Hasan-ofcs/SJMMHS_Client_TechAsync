@@ -6,7 +6,7 @@ import ToTopButton from "./components/to_top_button/ToTopButton";
 
 function App() {
   return (
-    <div className="bg-[#F9FAFB] min-h-screen flex flex-col justify-between relative">
+    <div className="bg-[#F9FAFB] min-h-screen flex flex-col justify-between relative overflow-x-hidden">
       <Header></Header>
       <Outlet />
       <Footer></Footer>

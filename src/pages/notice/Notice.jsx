@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Typography } from "@material-tailwind/react";
 
-const TABLE_HEAD = ["নোটিশ", "তারিখ", "ভিউ"];
+const TABLE_HEAD = ["তারিখ", "নোটিশ", "ভিউ"];
 
 const TABLE_ROWS = [
   {
@@ -33,7 +33,7 @@ const TABLE_ROWS = [
 
 export function Notice() {
   return (
-    <Card className="container mx-auto my-10 h-full w-full overflow-x-scroll">
+    <Card className="container mx-auto my-10 h-full w-full overflow-x-scroll no-scrollbar">
       <table className="w-full min-w-max table-auto text-left">
         <thead>
           <tr>
@@ -64,18 +64,18 @@ export function Notice() {
                   <Typography
                     variant="small"
                     color="blue-gray"
-                    className="font-normal w-[600px]"
+                    className="font-normal"
                   >
-                    {name}
+                    {date}
                   </Typography>
                 </td>
                 <td className={`${classes} bg-blue-gray-50/50`}>
                   <Typography
                     variant="small"
                     color="blue-gray"
-                    className="font-normal"
+                    className="font-normal w-[600px]"
                   >
-                    {job}
+                    {name}
                   </Typography>
                 </td>
                 <td className={classes}>
@@ -84,7 +84,7 @@ export function Notice() {
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {date}
+                    {job}
                   </Typography>
                 </td>
               </tr>
