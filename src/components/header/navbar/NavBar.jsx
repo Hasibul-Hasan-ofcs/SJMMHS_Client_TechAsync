@@ -3,54 +3,14 @@ import ActiveRoute from "./active_route/ActiveRoute";
 import { PiCaretDownFill } from "react-icons/pi";
 import style from "./css/navbar.module.css";
 import DropDown from "./dropdown/DropDown";
+import {
+  admissionData,
+  authorityData,
+  galleryData,
+  miscellaneousData,
+  studentData,
+} from "../../../data/navbar/NavBarElementData";
 
-const authorityData = {
-  link: "/",
-  arr: [
-    "প্রধান শিক্ষক",
-    "শিক্ষকবৃন্দ",
-    "পরিচালনা পরিষদ",
-    "ম্যানেজিং কমিটি",
-    "কর্মকর্তা কর্মচারী",
-    "প্রাক্তন প্রধান শিক্ষক",
-    "কৃতি শিক্ষার্থী",
-  ],
-};
-
-const studentData = {
-  link: "/",
-  arr: ["৬ষ্ঠ শ্রেণী", "৭ম শ্রেণী", "৮ম শ্রেণী", "৯ম শ্রেণী", "১০ম শ্রেণী"],
-};
-
-const admissionData = [
-  {
-    link: "/admissioninfo",
-    item: "ভর্তি তথ্য",
-  },
-  {
-    link: "/admissionform",
-    item: "ভর্তি ফরম",
-  },
-];
-
-const galleryData = {
-  link: "/",
-  arr: ["ফটোগ্যালারী", "ভিডিও গ্যালারী"],
-};
-
-const miscellaneousData = {
-  link: "/",
-  arr: [
-    "ছুটির তালিকা",
-    "কক্ষ সংখ্যা",
-    "ছাত্রছাত্রীর আসন সংখ্যা",
-    "কম্পিউটার ব্যবহার",
-    "ভৌতকাঠমো",
-    "মাল্টিমিডিয়া ক্লাসরুম",
-    "সহপাঠ",
-    "সার্কুলার",
-  ],
-};
 const NavBar = () => {
   return (
     <div className="bg-navbar min-h-[40px] flex flex-wrap justify-center">
@@ -67,7 +27,7 @@ const NavBar = () => {
         >
           প্রশাসন &nbsp;<PiCaretDownFill></PiCaretDownFill>
         </ActiveRoute>
-        <DropDown items={authorityData.arr} to={authorityData.link}></DropDown>
+        <DropDown items={authorityData}></DropDown>
       </div>
       <div className={`${style.dropdown_item}`}>
         <ActiveRoute
@@ -76,7 +36,7 @@ const NavBar = () => {
         >
           শিক্ষার্থীদের তথ্য &nbsp; <PiCaretDownFill></PiCaretDownFill>
         </ActiveRoute>
-        <DropDown items={studentData.arr} to={studentData.link}></DropDown>
+        <DropDown items={studentData}></DropDown>
       </div>
 
       <div className={`${style.dropdown_item}`}>
@@ -119,7 +79,7 @@ const NavBar = () => {
         >
           গ্যালারী &nbsp;<PiCaretDownFill></PiCaretDownFill>
         </ActiveRoute>
-        <DropDown items={galleryData.arr} to={galleryData.link}></DropDown>
+        <DropDown items={galleryData}></DropDown>
       </div>
       <div className={`${style.dropdown_item}`}>
         <ActiveRoute
@@ -128,10 +88,7 @@ const NavBar = () => {
         >
           বিভিন্ন তথ্য &nbsp; <PiCaretDownFill></PiCaretDownFill>
         </ActiveRoute>
-        <DropDown
-          items={miscellaneousData.arr}
-          to={miscellaneousData.link}
-        ></DropDown>
+        <DropDown items={miscellaneousData}></DropDown>
       </div>
       <ActiveRoute
         to="/contact"

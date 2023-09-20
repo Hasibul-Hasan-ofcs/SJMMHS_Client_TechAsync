@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const AdmissionInformation = () => {
   return (
-    <div className="container mx-auto py-9 px-4 md:px-8 lg:px-16">
+    <div className="container mx-auto py-9 px-4 md:px-8 lg:px-16 shadow bg-white my-6">
       <h2 className="text-center font-bold text-3xl py-9">ভর্তি তথ্য</h2>
       <p>
         এতদ্বারা জানানো যাচ্ছে যে, আগামী ১৬.১২.২০২০২৩ইং তারিখে সাত্তার জুট মিলস

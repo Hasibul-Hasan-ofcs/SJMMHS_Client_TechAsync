@@ -8,6 +8,13 @@ import PageNotFound from "./pages/pagenotfound/PageNotFound.jsx";
 import Notice from "./pages/notice/Notice.jsx";
 import AdmissionForm from "./pages/admission/admission_form/AdmissionForm.jsx";
 import AdmissionInformation from "./pages/admission/admission_information/AdmissionInformation.jsx";
+import Contact from "./pages/contact/Contact.jsx";
+import Holidays from "./pages/holidays/Holidays.jsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import NoOfRooms from "./pages/no_of_rooms/NoOfRooms.jsx";
+import NoOfSeats from "./pages/no_of_seats/NoOfSeats.jsx";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -23,12 +30,36 @@ const router = createBrowserRouter([
         element: <Notice></Notice>,
       },
       {
-        path: "/admissioninfo",
+        path: "/admission",
         element: <AdmissionInformation></AdmissionInformation>,
       },
       {
-        path: "/admissionform",
+        path: "/admission/admissioninfo",
+        element: <AdmissionInformation></AdmissionInformation>,
+      },
+      {
+        path: "/admission/admissionform",
         element: <AdmissionForm></AdmissionForm>,
+      },
+      {
+        path: "/miscellaneous",
+        element: <Holidays></Holidays>,
+      },
+      {
+        path: "/miscellaneous/holidays",
+        element: <Holidays></Holidays>,
+      },
+      {
+        path: "/miscellaneous/number-of-rooms",
+        element: <NoOfRooms></NoOfRooms>,
+      },
+      {
+        path: "/miscellaneous/number-seat",
+        element: <NoOfSeats></NoOfSeats>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       {
         path: "/*",
@@ -39,7 +70,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router}>
-    <App />
-  </RouterProvider>
+  <QueryClientProvider client={queryClient}>
+    <RouterProvider router={router}>
+      <App />
+    </RouterProvider>
+  </QueryClientProvider>
 );
