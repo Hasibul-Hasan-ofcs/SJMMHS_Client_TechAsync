@@ -11,7 +11,7 @@ const TitleContainer = () => {
         />
       </div>
       <div className="text-black max-w-[60%] h-fit box-border flex flex-col items-center justify-center">
-        <h1 className="text-[20px] md:text-[26px] lg:text-[36px] font-[500] text-center  ">
+        <h1 className="text-[20px] md:text-[26px] lg:text-[36px] font-[500] text-center font-bold">
           সাত্তার জুট মিলস মডেল হাই স্কুল
         </h1>
         <h4 className="text-[12px] md:text-[16px] lg:text-[21px] text-center font-[500]">

@@ -1,0 +1,53 @@
+.slidingButton {
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  /* display: inline-block; */
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1.42;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  color: #fff;
+  background-color: #013c57;
+}
+.slidingButton:after {
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -moz-transform: skewY(-10deg);
+  -ms-transform: skewY(-10deg);
+  -webkit-transform: skewY(-10deg);
+  transform: skewY(-10deg);
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 0;
+  bottom: -3rem;
+  left: 0;
+  background-color: #046bd2;
+}
+.slidingButton:hover,
+.slidingButton:focus,
+.slidingButton:active {
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  color: #fff;
+}
+.slidingButton:hover:after,
+.slidingButton:focus:after,
+.slidingButton:active:after {
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  height: 300%;
+}

@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const DropDown = ({ items, to }) => {
+const DropDown = ({ items }) => {
   return (
     <div className="w-[200px] bg-[#F9FAFB] py-[1px] flex flex-col">
       {items.map((el, indx) => (
         <Link
           className={`bg-[#013c57] w-[200px] h-[40px] transition_common hover:bg-white text-white hover:text-black flex-grow flex items-center ps-3`}
-          to={to}
+          to={el.link}
           key={indx}
         >
-          {el}
+          {el.item}
         </Link>
       ))}
     </div>

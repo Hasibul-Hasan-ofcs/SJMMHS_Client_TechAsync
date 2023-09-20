@@ -20,7 +20,7 @@ const Home = () => {
   SetPageTitle("Sattar Jute Mills Model High School");
 
   return (
-    <div className="container my-4 p-2 md:p-3 mx-auto shadow-xl border">
+    <div className="container my-4 p-2 md:p-3 mx-auto bg-white shadow">
       <IntroCarousel></IntroCarousel>
       <SpecialAnnouncements></SpecialAnnouncements>
       <div className="flex flex-wrap">

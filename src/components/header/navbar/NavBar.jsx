@@ -21,14 +21,23 @@ const studentData = {
   link: "/",
   arr: ["৬ষ্ঠ শ্রেণী", "৭ম শ্রেণী", "৮ম শ্রেণী", "৯ম শ্রেণী", "১০ম শ্রেণী"],
 };
-const admissionData = {
-  link: "/",
-  arr: ["ভর্তি তথ্য", "ভর্তি ফরম"],
-};
+
+const admissionData = [
+  {
+    link: "/admissioninfo",
+    item: "ভর্তি তথ্য",
+  },
+  {
+    link: "/admissionform",
+    item: "ভর্তি ফরম",
+  },
+];
+
 const galleryData = {
   link: "/",
   arr: ["ফটোগ্যালারী", "ভিডিও গ্যালারী"],
 };
+
 const miscellaneousData = {
   link: "/",
   arr: [
@@ -77,7 +86,7 @@ const NavBar = () => {
         >
           ভর্তি &nbsp; <PiCaretDownFill></PiCaretDownFill>
         </ActiveRoute>
-        <DropDown items={admissionData.arr} to={admissionData.link}></DropDown>
+        <DropDown items={admissionData}></DropDown>
       </div>
       <ActiveRoute
         to="/download"
