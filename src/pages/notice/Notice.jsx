@@ -1,11 +1,11 @@
 import React from "react";
 import { Card, Typography } from "@material-tailwind/react";
 
-const TABLE_HEAD = ["তারিখ", "নোটিশ", "ভিউ"];
+const TABLE_HEAD = ["নোটিশ", "তারিখ", "ভিউ"];
 
 const TABLE_ROWS = [
   {
-    name: "John Michael",
+    name: "John Michael Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla aperiam, inventore molestiae neque incidunt veniam nostrum ut quia esse eius!",
     job: "Manager",
     date: "23/04/18",
   },
@@ -33,7 +33,7 @@ const TABLE_ROWS = [
 
 export function Notice() {
   return (
-    <Card className="container mx-auto my-10 h-full w-full">
+    <Card className="container mx-auto my-10 h-full w-full overflow-x-scroll">
       <table className="w-full min-w-max table-auto text-left">
         <thead>
           <tr>
@@ -64,7 +64,7 @@ export function Notice() {
                   <Typography
                     variant="small"
                     color="blue-gray"
-                    className="font-normal"
+                    className="font-normal w-[600px]"
                   >
                     {name}
                   </Typography>
