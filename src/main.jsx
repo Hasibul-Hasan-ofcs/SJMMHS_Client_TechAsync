@@ -13,6 +13,9 @@ import Holidays from "./pages/holidays/Holidays.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import NoOfRooms from "./pages/no_of_rooms/NoOfRooms.jsx";
 import NoOfSeats from "./pages/no_of_seats/NoOfSeats.jsx";
+import AdminLogin from "./admin/pages/login/AdminLogin.jsx";
+import Admin from "./admin/pages/admin/Admin.jsx";
+import AdminDashboard from "./admin/pages/dashboard/AdminDashboard.jsx";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +67,20 @@ const router = createBrowserRouter([
       {
         path: "/*",
         element: <PageNotFound></PageNotFound>,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <Admin></Admin>,
+    children: [
+      {
+        path: "/admin/login",
+        element: <AdminLogin></AdminLogin>,
+      },
+      {
+        path: "/admin/dashboard",
+        element: <AdminDashboard></AdminDashboard>,
       },
     ],
   },

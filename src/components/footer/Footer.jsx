@@ -122,6 +122,7 @@ const Footer = () => {
             </Link>
             <Link
               className={`flex items-center gap-2 transition_common ${style.footer_link}`}
+              to="/contact"
             >
               {" "}
               <span
@@ -136,6 +137,7 @@ const Footer = () => {
               </span>{" "}
             </Link>
             <Link
+              to="/admin/login"
               className={`flex items-center gap-2 transition_common ${style.footer_link}`}
             >
               {" "}
