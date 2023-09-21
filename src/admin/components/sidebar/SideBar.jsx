@@ -4,17 +4,9 @@ import {
   List,
   ListItem,
   ListItemPrefix,
-  ListItemSuffix,
-  Chip,
 } from "@material-tailwind/react";
-import {
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
-  PowerIcon,
-} from "@heroicons/react/24/solid";
+import { PresentationChartBarIcon } from "@heroicons/react/24/solid";
+import ActiveRoute from "../dashboard_active_route/ActiveRoute";
 
 const SideBar = () => {
   return (
@@ -24,52 +16,135 @@ const SideBar = () => {
           Sjmmhs-techasync
         </Typography>
       </div>
-      <List>
-        <ListItem>
-          <ListItemPrefix>
-            <PresentationChartBarIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Dashboard
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <ShoppingBagIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          E-Commerce
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <InboxIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Inbox
-          <ListItemSuffix>
-            <Chip
-              value="14"
-              size="sm"
-              variant="ghost"
-              color="blue-gray"
-              className="rounded-full"
-            />
-          </ListItemSuffix>
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <UserCircleIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Profile
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <Cog6ToothIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Settings
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <PowerIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Log Out
-        </ListItem>
+      <List className="py-[2px]">
+        <ActiveRoute>
+          <ListItem>
+            {/* <ListItemPrefix>
+              <PresentationChartBarIcon className="h-5 w-5" />
+            </ListItemPrefix> */}
+            শিক্ষার্থীদের তথ্য
+          </ListItem>
+        </ActiveRoute>
+      </List>
+      <List className="py-[2px]">
+        <ActiveRoute>
+          <ListItem>
+            {/* <ListItemPrefix>
+              <PresentationChartBarIcon className="h-5 w-5" />
+            </ListItemPrefix> */}
+            ছুটির তালিকা
+          </ListItem>
+        </ActiveRoute>
+      </List>
+      <List className="py-[2px]">
+        <ActiveRoute>
+          <ListItem>
+            {/* <ListItemPrefix>
+              <PresentationChartBarIcon className="h-5 w-5" />
+            </ListItemPrefix> */}
+            কক্ষ সংখ্যা
+          </ListItem>
+        </ActiveRoute>
+      </List>
+      <List className="py-[2px]">
+        <ActiveRoute>
+          <ListItem>
+            {/* <ListItemPrefix>
+              <PresentationChartBarIcon className="h-5 w-5" />
+            </ListItemPrefix> */}
+            ছাত্রছাত্রীর আসন সংখ্যা
+          </ListItem>
+        </ActiveRoute>
+      </List>
+      <List className="py-[2px]">
+        <ActiveRoute>
+          <ListItem>
+            {/* <ListItemPrefix>
+              <PresentationChartBarIcon className="h-5 w-5" />
+            </ListItemPrefix> */}
+            সার্কুলার
+          </ListItem>
+        </ActiveRoute>
+      </List>
+      <List className="py-[2px]">
+        <ActiveRoute>
+          <ListItem>
+            {/* <ListItemPrefix>
+              <PresentationChartBarIcon className="h-5 w-5" />
+            </ListItemPrefix> */}
+            নোটিশ
+          </ListItem>
+        </ActiveRoute>
+      </List>
+      <List className="py-[2px]">
+        <ActiveRoute>
+          <ListItem>
+            {/* <ListItemPrefix>
+              <PresentationChartBarIcon className="h-5 w-5" />
+            </ListItemPrefix> */}
+            ফলাফল
+          </ListItem>
+        </ActiveRoute>
+      </List>
+      <List className="py-[2px]">
+        <ActiveRoute>
+          <ListItem>
+            {/* <ListItemPrefix>
+              <PresentationChartBarIcon className="h-5 w-5" />
+            </ListItemPrefix> */}
+            শিক্ষকবৃন্দ
+          </ListItem>
+        </ActiveRoute>
+      </List>
+      <List className="py-[2px]">
+        <ActiveRoute>
+          <ListItem>
+            {/* <ListItemPrefix>
+              <PresentationChartBarIcon className="h-5 w-5" />
+            </ListItemPrefix> */}
+            পরিচালনা পরিষদ
+          </ListItem>
+        </ActiveRoute>
+      </List>
+      <List className="py-[2px]">
+        <ActiveRoute>
+          <ListItem>
+            {/* <ListItemPrefix>
+              <PresentationChartBarIcon className="h-5 w-5" />
+            </ListItemPrefix> */}
+            ম্যানেজিং কমিটি
+          </ListItem>
+        </ActiveRoute>
+      </List>
+      <List className="py-[2px]">
+        <ActiveRoute>
+          <ListItem>
+            {/* <ListItemPrefix>
+              <PresentationChartBarIcon className="h-5 w-5" />
+            </ListItemPrefix> */}
+            কর্মকর্তা কর্মচারী
+          </ListItem>
+        </ActiveRoute>
+      </List>
+      <List className="py-[2px]">
+        <ActiveRoute>
+          <ListItem>
+            {/* <ListItemPrefix>
+              <PresentationChartBarIcon className="h-5 w-5" />
+            </ListItemPrefix> */}
+            প্রাক্তন প্রধান শিক্ষক
+          </ListItem>
+        </ActiveRoute>
+      </List>
+      <List className="py-[2px]">
+        <ActiveRoute>
+          <ListItem>
+            {/* <ListItemPrefix>
+              <PresentationChartBarIcon className="h-5 w-5" />
+            </ListItemPrefix> */}
+            কৃতি শিক্ষার্থী
+          </ListItem>
+        </ActiveRoute>
       </List>
     </Card>
   );

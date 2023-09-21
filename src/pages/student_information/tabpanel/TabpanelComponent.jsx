@@ -1,21 +1,15 @@
-import React from "react";
-import CustomUnderline from "../../components/custom_underline/CustomUnderline";
-import { Card, Typography } from "@material-tailwind/react";
+import React, { useEffect } from "react";
+import { TabPanel, Card, Typography } from "@material-tailwind/react";
 import { Oval } from "react-loader-spinner";
-import { NoOfRoomsAPI } from "../../api/NoOfRoomsAPI";
-import SetPageTitle from "../../components/page_title/SetPageTitle";
+import { StudentInfoAPI } from "../../../api/StudentInfoAPI";
 
-const TABLE_HEAD = ["সিরিয়াল", "ফ্লোর", "ক্লাস সংখ্যা"];
+const TABLE_HEAD = ["সিরিয়াল", "নাম", "নিবন্ধন নম্বর"];
 
-const NoOfRooms = () => {
-  SetPageTitle("কক্ষ সংখ্যা");
-  const { isLoading, data } = NoOfRoomsAPI();
+const TabpanelComponent = ({ value }) => {
+  const { isLoading, data } = StudentInfoAPI(value);
 
   return (
-    <div className="container mx-auto my-10 pb-10">
-      <h1 className="pt-6 pb-5 text-center text-3xl">কক্ষ সংখ্যা</h1>
-      <CustomUnderline></CustomUnderline>
-
+    <TabPanel key={value} value={value}>
       {isLoading ? (
         <div className="flex justify-center items-center">
           <Oval
@@ -54,7 +48,7 @@ const NoOfRooms = () => {
             </thead>
             <tbody>
               {data &&
-                data.map(({ floor, numberofclasses, _id }, index) => {
+                data.map(({ name, reg, _id }, index) => {
                   const isLast = index === data.length - 1;
                   const classes = isLast
                     ? "p-4"
@@ -77,7 +71,7 @@ const NoOfRooms = () => {
                           color="blue-gray"
                           className="font-normal w-[600px]"
                         >
-                          {floor}
+                          {name}
                         </Typography>
                       </td>
                       <td className={classes}>
@@ -86,7 +80,7 @@ const NoOfRooms = () => {
                           color="blue-gray"
                           className="font-normal"
                         >
-                          {numberofclasses}
+                          {reg}
                         </Typography>
                       </td>
                     </tr>
@@ -96,8 +90,8 @@ const NoOfRooms = () => {
           </table>
         </Card>
       )}
-    </div>
+    </TabPanel>
   );
 };
 
-export default NoOfRooms;
+export default TabpanelComponent;

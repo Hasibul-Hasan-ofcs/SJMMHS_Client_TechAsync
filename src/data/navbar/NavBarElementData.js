@@ -31,23 +31,23 @@ export const authorityData = [
 
 export const studentData = [
   {
-    link: "/student-info/class6",
+    link: "/student-information/6",
     item: "৬ষ্ঠ শ্রেণী",
   },
   {
-    link: "/student-info/class7",
+    link: "/student-information/7",
     item: "৭ম শ্রেণী",
   },
   {
-    link: "/student-info/class8",
+    link: "/student-information/8",
     item: "৮ম শ্রেণী",
   },
   {
-    link: "/student-info/class9",
+    link: "/student-information/9",
     item: "৯ম শ্রেণী",
   },
   {
-    link: "/student-info/class10",
+    link: "/student-information/10",
     item: "১০ম শ্রেণী",
   },
 ];

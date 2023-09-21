@@ -22,10 +22,6 @@ import { useNavigate } from "react-router-dom";
 // profile menu component
 const profileMenuItems = [
   {
-    label: "My Profile",
-    icon: UserCircleIcon,
-  },
-  {
     label: "logout",
     icon: PowerIcon,
   },
@@ -110,7 +106,7 @@ const NavigationBar = () => {
   }, []);
 
   return (
-    <Navbar className="mx-auto max-w-[1200px] p-2 lg:rounded-2 sticky top-5 right-3">
+    <Navbar className="mx-auto max-w-[1200px] p-2 lg:rounded-2 sticky top-5 left-3">
       <div className="relative mx-auto flex items-center text-blue-gray-900">
         <Typography
           as="a"

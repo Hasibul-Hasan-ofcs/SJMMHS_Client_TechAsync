@@ -16,6 +16,8 @@ import NoOfSeats from "./pages/no_of_seats/NoOfSeats.jsx";
 import AdminLogin from "./admin/pages/login/AdminLogin.jsx";
 import Admin from "./admin/pages/admin/Admin.jsx";
 import AdminDashboard from "./admin/pages/dashboard/AdminDashboard.jsx";
+import StudentInformation from "./pages/student_information/StudentInformation.jsx";
+import AdminPrivateRoute from "./admin/private/AdminPrivateRoute.jsx";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/student-information/:class",
+        element: <StudentInformation></StudentInformation>,
       },
       {
         path: "/notice",
@@ -80,7 +86,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin/dashboard",
-        element: <AdminDashboard></AdminDashboard>,
+        element: (
+          <AdminPrivateRoute>
+            <AdminDashboard></AdminDashboard>
+          </AdminPrivateRoute>
+        ),
+        children: [
+          {
+            path: "/admin/dashboard/student-information",
+            element: <StudentInformation></StudentInformation>,
+          },
+        ],
+      },
+      {
+        path: "/admin/*",
+        element: <PageNotFound></PageNotFound>,
       },
     ],
   },
