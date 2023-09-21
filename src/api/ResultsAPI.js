@@ -6,7 +6,9 @@ const ResultAPI = (valueClass, reg) => {
     queryKey: ["resultapi"],
     queryFn: () =>
       axios
-        .get(`http://localhost:5000/result/${valueClass}/${reg}`)
+        .get(
+          `https://sjmmhs-server-techasync.vercel.app/result/${valueClass}/${reg}`
+        )
         .then(function (response) {
           return response.data;
         })
