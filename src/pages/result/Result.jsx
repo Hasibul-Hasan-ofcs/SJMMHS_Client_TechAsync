@@ -1,9 +1,12 @@
-import React, { useRef, useState } from "react";
-import { Select, Option, Input, Button } from "@material-tailwind/react";
+import React, { useState } from "react";
+import { Input, Button } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom";
 
 const Result = () => {
-  const [valueClass, setValueClass] = useState(null);
-  const [valueYear, setValueYear] = useState(null);
+  const [valueClass, setValueClass] = useState("");
+  const [valueYear, setValueYear] = useState("");
+
+  const navigate = useNavigate();
 
   const handleChangeClass = (e) => {
     setValueClass(e.target?.value);
@@ -20,6 +23,7 @@ const Result = () => {
     const reg = form.reg.value;
 
     console.log(valueClass, valueYear, reg);
+    navigate(`/result-data/${valueClass}/${reg}`);
   };
 
   return (
@@ -42,10 +46,10 @@ const Result = () => {
               >
                 <option value="">Select an option</option>
                 <option value="6">6</option>
-                <option value="7">7</option>
+                {/* <option value="7">7</option>
                 <option value="8">8</option>
                 <option value="9">9</option>
-                <option value="10">10</option>
+                <option value="10">10</option> */}
               </select>
             </div>
 
@@ -71,18 +75,6 @@ const Result = () => {
               <Button type="submit">Result</Button>
             </div>
           </form>
-        </div>
-
-        <div className="my-6 bg-white p-4">
-          <p>
-            <span>Name: </span>
-          </p>
-          <p>
-            <span>Registartion No: </span>
-          </p>
-          <p>
-            <span>Result: </span>
-          </p>
         </div>
       </div>
     </div>

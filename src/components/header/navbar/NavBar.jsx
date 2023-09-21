@@ -22,7 +22,7 @@ const NavBar = () => {
       </ActiveRoute>
       <div className={`${style.dropdown_item}`}>
         <ActiveRoute
-          to="/authority"
+          to="/authority/principal"
           classes={`transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
         >
           প্রশাসন &nbsp;<PiCaretDownFill></PiCaretDownFill>
@@ -31,7 +31,7 @@ const NavBar = () => {
       </div>
       <div className={`${style.dropdown_item}`}>
         <ActiveRoute
-          to="/student-info"
+          to="/student-information/6"
           classes={`transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
         >
           শিক্ষার্থীদের তথ্য &nbsp; <PiCaretDownFill></PiCaretDownFill>
@@ -41,7 +41,7 @@ const NavBar = () => {
 
       <div className={`${style.dropdown_item}`}>
         <ActiveRoute
-          to="/admission"
+          to="/admission/admissioninfo"
           classes={`transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
         >
           ভর্তি &nbsp; <PiCaretDownFill></PiCaretDownFill>
@@ -80,7 +80,7 @@ const NavBar = () => {
       </ActiveRoute>
       <div className={`${style.dropdown_item}`}>
         <ActiveRoute
-          to="/gallery"
+          to="/gallery/photo-gallery"
           classes={`transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
         >
           গ্যালারী &nbsp;<PiCaretDownFill></PiCaretDownFill>
@@ -89,7 +89,7 @@ const NavBar = () => {
       </div>
       <div className={`${style.dropdown_item}`}>
         <ActiveRoute
-          to="/miscellaneous"
+          to="/miscellaneous/holidays"
           classes={`transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow`}
         >
           বিভিন্ন তথ্য &nbsp; <PiCaretDownFill></PiCaretDownFill>

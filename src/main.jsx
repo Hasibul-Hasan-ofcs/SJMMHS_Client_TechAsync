@@ -21,6 +21,9 @@ import AdminPrivateRoute from "./admin/private/AdminPrivateRoute.jsx";
 import Principal from "./pages/principal/Principal.jsx";
 import Result from "./pages/result/Result.jsx";
 import Blogs from "./pages/blogs/Blogs.jsx";
+import Videos from "./pages/videos/Videos.jsx";
+import PhotoGallery from "./pages/photos/PhotoGallery.jsx";
+import ResultDataPage from "./pages/result/ResultDataPage.jsx";
 
 const queryClient = new QueryClient();
 
@@ -46,12 +49,24 @@ const router = createBrowserRouter([
         element: <Result></Result>,
       },
       {
+        path: "/result-data/:valueClass/:reg",
+        element: <ResultDataPage></ResultDataPage>,
+      },
+      {
         path: "/notice",
         element: <Notice></Notice>,
       },
       {
         path: "/blog",
         element: <Blogs></Blogs>,
+      },
+      {
+        path: "/gallery/photo-gallery",
+        element: <PhotoGallery></PhotoGallery>,
+      },
+      {
+        path: "/gallery/video-gallery",
+        element: <Videos></Videos>,
       },
       {
         path: "/admission",
