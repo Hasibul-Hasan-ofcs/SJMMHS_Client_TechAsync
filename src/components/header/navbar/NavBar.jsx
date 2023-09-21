@@ -61,6 +61,12 @@ const NavBar = () => {
         রুটিন
       </ActiveRoute>
       <ActiveRoute
+        to="/result"
+        classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"
+      >
+        ফলাফল
+      </ActiveRoute>
+      <ActiveRoute
         to="/notice"
         classes="transition_common text-white flex items-center justify-center h-full px-3 py-2 border border-[#74010d] hover:bg-[#044E71] flex-grow"
       >

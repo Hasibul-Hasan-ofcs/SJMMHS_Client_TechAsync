@@ -1,98 +1,94 @@
 import React from "react";
-import { Card, Typography } from "@material-tailwind/react";
+import { Button, Card, Typography } from "@material-tailwind/react";
+import { NoticeAPI } from "../../api/NoticeAPI";
+import { Oval } from "react-loader-spinner";
 
 const TABLE_HEAD = ["তারিখ", "নোটিশ", "ভিউ"];
 
-const TABLE_ROWS = [
-  {
-    name: "John Michael Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla aperiam, inventore molestiae neque incidunt veniam nostrum ut quia esse eius!",
-    job: "Manager",
-    date: "23/04/18",
-  },
-  {
-    name: "Alexa Liras",
-    job: "Developer",
-    date: "23/04/18",
-  },
-  {
-    name: "Laurent Perrier",
-    job: "Executive",
-    date: "19/09/17",
-  },
-  {
-    name: "Michael Levi",
-    job: "Developer",
-    date: "24/12/08",
-  },
-  {
-    name: "Richard Gran",
-    job: "Manager",
-    date: "04/10/21",
-  },
-];
-
 export function Notice() {
+  const { isLoading, data } = NoticeAPI();
   return (
-    <Card className="container mx-auto my-10 h-full w-full overflow-x-scroll no-scrollbar">
-      <table className="w-full min-w-max table-auto text-left">
-        <thead>
-          <tr>
-            {TABLE_HEAD.map((head) => (
-              <th
-                key={head}
-                className="border-b border-[#013c57] bg-[#013c57] p-4"
-              >
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal leading-none text-white"
-                >
-                  {head}
-                </Typography>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {TABLE_ROWS.map(({ name, job, date }, index) => {
-            const isLast = index === TABLE_ROWS.length - 1;
-            const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
-
-            return (
-              <tr key={name}>
-                <td className={classes}>
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal"
+    <>
+      {isLoading ? (
+        <div className="flex justify-center items-center">
+          <Oval
+            height={80}
+            width={80}
+            color="#013c57"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+            ariaLabel="oval-loading"
+            secondaryColor="#013c57"
+            strokeWidth={2}
+            strokeWidthSecondary={2}
+          />
+        </div>
+      ) : (
+        <Card className="container mx-auto my-10 h-full w-full overflow-x-scroll no-scrollbar">
+          <table className="w-full min-w-max table-auto text-left">
+            <thead>
+              <tr>
+                {TABLE_HEAD.map((head) => (
+                  <th
+                    key={head}
+                    className="border-b border-[#013c57] bg-[#013c57] p-4"
                   >
-                    {date}
-                  </Typography>
-                </td>
-                <td className={`${classes} bg-blue-gray-50/50`}>
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal w-[600px]"
-                  >
-                    {name}
-                  </Typography>
-                </td>
-                <td className={classes}>
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal"
-                  >
-                    {job}
-                  </Typography>
-                </td>
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal leading-none text-white"
+                    >
+                      {head}
+                    </Typography>
+                  </th>
+                ))}
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </Card>
+            </thead>
+            <tbody>
+              {data.map(({ notice, date, _id }, index) => {
+                const isLast = index === data.length - 1;
+                const classes = isLast
+                  ? "p-4"
+                  : "p-4 border-b border-blue-gray-50";
+
+                return (
+                  <tr key={_id}>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal"
+                      >
+                        {date}
+                      </Typography>
+                    </td>
+                    <td className={`${classes} bg-blue-gray-50/50`}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal w-[600px]"
+                      >
+                        {notice}
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal"
+                      >
+                        <Button>View</Button>
+                      </Typography>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </Card>
+      )}
+    </>
   );
 }
 

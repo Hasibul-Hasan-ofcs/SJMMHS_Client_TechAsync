@@ -6,7 +6,7 @@ const NoOfRoomsAPI = () => {
     queryKey: ["noofrooms"],
     queryFn: () =>
       axios
-        .get("http://localhost:5000/no-of-rooms")
+        .get("https://sjmmhs-server-techasync.vercel.app/no-of-rooms")
         .then(function (response) {
           return response.data;
         })

@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const NoOfSeatsAPI = () => {
+const NoticeAPI = () => {
   const { isLoading, error, data } = useQuery({
-    queryKey: ["noofseats"],
+    queryKey: ["notices"],
     queryFn: () =>
       axios
-        .get("https://sjmmhs-server-techasync.vercel.app/no-of-seats")
+        .get("http://localhost:5000/notices")
         .then(function (response) {
           return response.data;
         })
@@ -18,4 +18,4 @@ const NoOfSeatsAPI = () => {
   return { isLoading, error, data };
 };
 
-export { NoOfSeatsAPI };
+export { NoticeAPI };

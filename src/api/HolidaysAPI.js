@@ -6,7 +6,7 @@ const HolidaysAPI = () => {
     queryKey: ["holidays"],
     queryFn: () =>
       axios
-        .get("http://localhost:5000/holidays")
+        .get("https://sjmmhs-server-techasync.vercel.app/holidays")
         .then(function (response) {
           return response.data;
         })

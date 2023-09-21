@@ -4,7 +4,7 @@ import axios from "axios";
 const StudentInfoAPI = (value) => {
   const { isLoading, error, data } = useQuery(["studentinfoapi", value], () =>
     axios
-      .get(`http://localhost:5000/student-info/${value}`)
+      .get(`https://sjmmhs-server-techasync.vercel.app/student-info/${value}`)
       .then(function (response) {
         return response.data;
       })

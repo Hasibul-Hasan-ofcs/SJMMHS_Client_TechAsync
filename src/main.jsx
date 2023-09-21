@@ -18,6 +18,9 @@ import Admin from "./admin/pages/admin/Admin.jsx";
 import AdminDashboard from "./admin/pages/dashboard/AdminDashboard.jsx";
 import StudentInformation from "./pages/student_information/StudentInformation.jsx";
 import AdminPrivateRoute from "./admin/private/AdminPrivateRoute.jsx";
+import Principal from "./pages/principal/Principal.jsx";
+import Result from "./pages/result/Result.jsx";
+import Blogs from "./pages/blogs/Blogs.jsx";
 
 const queryClient = new QueryClient();
 
@@ -35,8 +38,20 @@ const router = createBrowserRouter([
         element: <StudentInformation></StudentInformation>,
       },
       {
+        path: "/authority/principal",
+        element: <Principal></Principal>,
+      },
+      {
+        path: "/result",
+        element: <Result></Result>,
+      },
+      {
         path: "/notice",
         element: <Notice></Notice>,
+      },
+      {
+        path: "/blog",
+        element: <Blogs></Blogs>,
       },
       {
         path: "/admission",
