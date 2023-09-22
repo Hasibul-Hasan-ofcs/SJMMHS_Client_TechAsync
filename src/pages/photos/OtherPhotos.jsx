@@ -1,15 +1,16 @@
 import React from "react";
 import CustomUnderline from "../../components/custom_underline/CustomUnderline";
-import { Link } from "react-router-dom";
-import style from "./css/pg.module.css";
-import { PhotoGalleryAPI } from "../../api/PhotoGalleryAPI";
+import { PhotoGalleryByIdAPI } from "../../api/PhotoGalleryByIdAPI";
 import SetPageTitle from "../../components/page_title/SetPageTitle";
 import { Oval } from "react-loader-spinner";
+import { Link, useParams } from "react-router-dom";
 
-const PhotoGallery = () => {
+const OtherPhotos = () => {
   SetPageTitle("ফটোগ্যালারী");
 
-  const { isLoading, data } = PhotoGalleryAPI();
+  const { id } = useParams();
+
+  const { isLoading, data } = PhotoGalleryByIdAPI(id);
   console.log(data);
 
   return (
@@ -34,24 +35,18 @@ const PhotoGallery = () => {
         </div>
       ) : (
         <div className="flex flex-wrap flex-row px-1 py-16">
-          {data.map(({ _id, main_image_url, other_images, context }, indx) => (
-            <div className="p-1 w-full md:w-[50%] lg:w-[25%]" key={_id}>
+          {data[0].other_images.map((el, indx) => (
+            <div className="p-1 w-full md:w-[50%] lg:w-[33%]" key={indx}>
               <div className="p-1 shadow border">
-                <div
-                  className={`${style.img_link} w-full min-h-[150px] relative overflow-hidden`}
-                >
-                  <Link
-                    to={`/gallery/photo-gallery/${_id}`}
-                    className={`block h-full w-full relative`}
-                  >
+                <div className={`w-full h-[250px] relative overflow-hidden`}>
+                  <Link to={``} className={`block h-full w-full relative`}>
                     <img
-                      src={main_image_url}
+                      src={el}
                       alt="school photos"
-                      className="w-full h-auto hover:scale-105 transition_common"
+                      className="w-full h-full hover:scale-105 transition_common"
                     />
                   </Link>
                 </div>
-                <p className="py-3 text-center">{context}</p>
               </div>
             </div>
           ))}
@@ -61,4 +56,4 @@ const PhotoGallery = () => {
   );
 };
 
-export default PhotoGallery;
+export default OtherPhotos;

@@ -20,7 +20,7 @@ import StudentInformation from "./pages/student_information/StudentInformation.j
 import AdminPrivateRoute from "./admin/private/AdminPrivateRoute.jsx";
 import Principal from "./pages/principal/Principal.jsx";
 import Result from "./pages/result/Result.jsx";
-import Blogs from "./pages/blogs/Blogs.jsx";
+import Blog from "./pages/blog/Blog.jsx";
 import Videos from "./pages/videos/Videos.jsx";
 import PhotoGallery from "./pages/photos/PhotoGallery.jsx";
 import ResultDataPage from "./pages/result/ResultDataPage.jsx";
@@ -34,6 +34,7 @@ import PhysicalStructure from "./pages/physical_structure/PhysicalStructure.jsx"
 import MultimediaClassRoom from "./pages/multimedia_classroom/MultimediaClassroom.jsx";
 import Sahapath from "./pages/sahapath/Sahapath.jsx";
 import Circular from "./pages/circular/Circular.jsx";
+import OtherPhotos from "./pages/photos/OtherPhotos.jsx";
 
 const queryClient = new QueryClient();
 
@@ -88,11 +89,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <Blogs></Blogs>,
+        element: <Blog></Blog>,
       },
       {
         path: "/gallery/photo-gallery",
         element: <PhotoGallery></PhotoGallery>,
+      },
+      {
+        path: "/gallery/photo-gallery/:id",
+        element: <OtherPhotos></OtherPhotos>,
       },
       {
         path: "/gallery/video-gallery",
