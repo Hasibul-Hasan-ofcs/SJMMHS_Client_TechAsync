@@ -1,19 +1,19 @@
 import React from "react";
+import { CircularAPI } from "../../api/CircularAPI";
 import { Button, Card, Typography } from "@material-tailwind/react";
 import { Oval } from "react-loader-spinner";
-import { NoticeAPI } from "../../api/NoticeAPI";
 import SetPageTitle from "../../components/page_title/SetPageTitle";
 import CustomUnderline from "../../components/custom_underline/CustomUnderline";
 
-const TABLE_HEAD = ["সিরিয়াল", "তারিখ", "নোটিশ", "ভিউ"];
+const TABLE_HEAD = ["সিরিয়াল", "পদ", "ঠিকানা", "বিবরণ", "ভিউ"];
 
-export function Notice() {
-  SetPageTitle("নোটিশ");
+const Circular = () => {
+  SetPageTitle("সার্কুলার");
+  const { isLoading, data } = CircularAPI();
 
-  const { isLoading, data } = NoticeAPI();
   return (
     <div className="container mx-auto min-h-[400px] my-14 bg-white rounded-2xl">
-      <h1 className="pt-6 pb-5 text-center text-3xl">নোটিশ</h1>
+      <h1 className="pt-6 pb-5 text-center text-3xl">সার্কুলার</h1>
       <CustomUnderline></CustomUnderline>
 
       {isLoading ? (
@@ -53,7 +53,7 @@ export function Notice() {
               </tr>
             </thead>
             <tbody>
-              {data.map(({ notice, date, _id }, index) => {
+              {data.map(({ Position, Location, Description, _id }, index) => {
                 const isLast = index === data.length - 1;
                 const classes = isLast
                   ? "p-4"
@@ -76,7 +76,16 @@ export function Notice() {
                         color="blue-gray"
                         className="font-normal"
                       >
-                        {date}
+                        {Position}
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal"
+                      >
+                        {Location}
                       </Typography>
                     </td>
                     <td className={`${classes} bg-blue-gray-50/50`}>
@@ -85,7 +94,7 @@ export function Notice() {
                         color="blue-gray"
                         className="font-normal w-[600px]"
                       >
-                        {notice}
+                        {Description}
                       </Typography>
                     </td>
                     <td className={classes}>
@@ -106,6 +115,6 @@ export function Notice() {
       )}
     </div>
   );
-}
+};
 
-export default Notice;
+export default Circular;

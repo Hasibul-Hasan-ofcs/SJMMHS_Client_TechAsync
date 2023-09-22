@@ -7,10 +7,10 @@ export const authorityData = [
     link: "/authority/teachers",
     item: "শিক্ষকবৃন্দ",
   },
-  {
-    link: "/authority/directorboard",
-    item: "পরিচালনা পরিষদ",
-  },
+  // {
+  //   link: "/authority/directorboard",
+  //   item: "পরিচালনা পরিষদ",
+  // },
   {
     link: "/authority/management",
     item: "ম্যানেজিং কমিটি",

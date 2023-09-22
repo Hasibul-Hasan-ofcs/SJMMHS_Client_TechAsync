@@ -24,6 +24,16 @@ import Blogs from "./pages/blogs/Blogs.jsx";
 import Videos from "./pages/videos/Videos.jsx";
 import PhotoGallery from "./pages/photos/PhotoGallery.jsx";
 import ResultDataPage from "./pages/result/ResultDataPage.jsx";
+import ExPrincipal from "./pages/ex_principal/ExPrincipal.jsx";
+import Management from "./pages/management/Management.jsx";
+import Teachers from "./pages/teachers/Teachers.jsx";
+import Staff from "./pages/staff/Staff.jsx";
+import SuccessfulStudent from "./pages/successful_student/SuccessfulStudent.jsx";
+import ComputerUsage from "./pages/computer_usage/ComputerUsage.jsx";
+import PhysicalStructure from "./pages/physical_structure/PhysicalStructure.jsx";
+import MultimediaClassRoom from "./pages/multimedia_classroom/MultimediaClassroom.jsx";
+import Sahapath from "./pages/sahapath/Sahapath.jsx";
+import Circular from "./pages/circular/Circular.jsx";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +53,26 @@ const router = createBrowserRouter([
       {
         path: "/authority/principal",
         element: <Principal></Principal>,
+      },
+      {
+        path: "/authority/ex-principal",
+        element: <ExPrincipal></ExPrincipal>,
+      },
+      {
+        path: "/authority/management",
+        element: <Management></Management>,
+      },
+      {
+        path: "/authority/teachers",
+        element: <Teachers></Teachers>,
+      },
+      {
+        path: "/authority/workers",
+        element: <Staff></Staff>,
+      },
+      {
+        path: "/authority/meritorious-students",
+        element: <SuccessfulStudent></SuccessfulStudent>,
       },
       {
         path: "/result",
@@ -95,6 +125,26 @@ const router = createBrowserRouter([
       {
         path: "/miscellaneous/number-seat",
         element: <NoOfSeats></NoOfSeats>,
+      },
+      {
+        path: "/miscellaneous/computer-usage",
+        element: <ComputerUsage></ComputerUsage>,
+      },
+      {
+        path: "/miscellaneous/physical-structure",
+        element: <PhysicalStructure></PhysicalStructure>,
+      },
+      {
+        path: "/miscellaneous/Multimedia-classroom",
+        element: <MultimediaClassRoom></MultimediaClassRoom>,
+      },
+      {
+        path: "/miscellaneous/sahapath",
+        element: <Sahapath></Sahapath>,
+      },
+      {
+        path: "/miscellaneous/circular",
+        element: <Circular></Circular>,
       },
       {
         path: "/contact",

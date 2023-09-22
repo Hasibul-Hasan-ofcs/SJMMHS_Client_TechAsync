@@ -4,18 +4,18 @@ import { FaFacebookF, FaWhatsapp } from "react-icons/fa6";
 import { BiLogoLinkedin } from "react-icons/bi";
 import CustomUnderline from "../../components/custom_underline/CustomUnderline";
 import SetPageTitle from "../../components/page_title/SetPageTitle";
-import { PrincipalAPI } from "./../../api/PrincipalAPI";
+import { ExPrincipalAPI } from "../../api/ExPrincipalAPI";
 import { Oval } from "react-loader-spinner";
 
-const Principal = () => {
+const ExPrincipal = () => {
   SetPageTitle("প্রধান শিক্ষক");
 
-  const { isLoading, data } = PrincipalAPI();
+  const { isLoading, data } = ExPrincipalAPI();
   console.log(data);
 
   return (
     <div className="container mx-auto p-2 lg:p-10 bg-white shadow my-9">
-      <h1 className="pt-4 pb-5 text-center text-3xl">প্রধান শিক্ষক</h1>
+      <h1 className="pt-4 pb-5 text-center text-3xl">প্রাক্তন প্রধান শিক্ষক</h1>
       <CustomUnderline></CustomUnderline>
 
       {isLoading ? (
@@ -81,4 +81,4 @@ const Principal = () => {
   );
 };
 
-export default Principal;
+export default ExPrincipal;
