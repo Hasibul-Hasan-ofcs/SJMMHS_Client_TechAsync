@@ -30,6 +30,7 @@ const Footer = () => {
           <div className="w-full px-6 lg:px-0 md:w-2/4 lg:w-1/4 flex flex-col gap-2">
             <Link
               className={`flex items-center gap-2 transition_common ${style.footer_link}`}
+              to="/"
             >
               {" "}
               <span
@@ -45,6 +46,7 @@ const Footer = () => {
             </Link>
             <Link
               className={`flex items-center gap-2 transition_common ${style.footer_link}`}
+              to="/notice"
             >
               {" "}
               <span
@@ -60,6 +62,7 @@ const Footer = () => {
             </Link>
             <Link
               className={`flex items-center gap-2 transition_common ${style.footer_link}`}
+              to="/admission/admissioninfo"
             >
               {" "}
               <span
@@ -75,6 +78,7 @@ const Footer = () => {
             </Link>
             <Link
               className={`flex items-center gap-2 transition_common ${style.footer_link}`}
+              to="/result"
             >
               {" "}
               <span
@@ -92,6 +96,7 @@ const Footer = () => {
           <div className="w-full px-6 lg:px-0 md:w-2/4 lg:w-1/4 flex flex-col gap-2">
             <Link
               className={`flex items-center gap-2 transition_common ${style.footer_link}`}
+              to="/authority/principal"
             >
               {" "}
               <span
@@ -107,6 +112,7 @@ const Footer = () => {
             </Link>
             <Link
               className={`flex items-center gap-2 transition_common ${style.footer_link}`}
+              to="/authority/principal"
             >
               {" "}
               <span

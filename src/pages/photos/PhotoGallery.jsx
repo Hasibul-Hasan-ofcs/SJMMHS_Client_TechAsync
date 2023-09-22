@@ -5,6 +5,7 @@ import style from "./css/pg.module.css";
 import { PhotoGalleryAPI } from "../../api/PhotoGalleryAPI";
 import SetPageTitle from "../../components/page_title/SetPageTitle";
 import { Oval } from "react-loader-spinner";
+import { BsZoomIn } from "react-icons/bs";
 
 const PhotoGallery = () => {
   SetPageTitle("ফটোগ্যালারী");
@@ -37,18 +38,23 @@ const PhotoGallery = () => {
           {data.map(({ _id, main_image_url, other_images, context }, indx) => (
             <div className="p-1 w-full md:w-[50%] lg:w-[25%]" key={_id}>
               <div className="p-1 shadow border">
-                <div
-                  className={`${style.img_link} w-full min-h-[150px] relative overflow-hidden`}
-                >
+                <div className={`w-full min-h-[150px] overflow-hidden`}>
                   <Link
                     to={`/gallery/photo-gallery/${_id}`}
-                    className={`block h-full w-full relative`}
+                    className={`${style.img_link} block h-full w-full relative`}
                   >
                     <img
                       src={main_image_url}
                       alt="school photos"
                       className="w-full h-auto hover:scale-105 transition_common"
                     />
+                    <span className={`${style.span} transition_common`}>
+                      <span className="h-full w-full flex items-center justify-center">
+                        <span className="text-white font-bold text-2xl">
+                          <BsZoomIn />
+                        </span>
+                      </span>
+                    </span>
                   </Link>
                 </div>
                 <p className="py-3 text-center">{context}</p>

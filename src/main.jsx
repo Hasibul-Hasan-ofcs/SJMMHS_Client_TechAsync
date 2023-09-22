@@ -35,6 +35,10 @@ import MultimediaClassRoom from "./pages/multimedia_classroom/MultimediaClassroo
 import Sahapath from "./pages/sahapath/Sahapath.jsx";
 import Circular from "./pages/circular/Circular.jsx";
 import OtherPhotos from "./pages/photos/OtherPhotos.jsx";
+import Download from "./pages/download/Download.jsx";
+import Routine from "./pages/routine/Routine.jsx";
+import HomeContextProvider from "./context/HomeContextProvider.jsx";
+import StudentInformationAdmin from "./admin/pages/student/StudentInformationAdmin.jsx";
 
 const queryClient = new QueryClient();
 
@@ -86,6 +90,14 @@ const router = createBrowserRouter([
       {
         path: "/notice",
         element: <Notice></Notice>,
+      },
+      {
+        path: "/download",
+        element: <Download></Download>,
+      },
+      {
+        path: "/routine",
+        element: <Routine></Routine>,
       },
       {
         path: "/blog",
@@ -179,7 +191,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/admin/dashboard/student-information",
-            element: <StudentInformation></StudentInformation>,
+            element: <StudentInformationAdmin></StudentInformationAdmin>,
           },
         ],
       },
@@ -193,8 +205,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router}>
-      <App />
-    </RouterProvider>
+    <HomeContextProvider>
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </HomeContextProvider>
   </QueryClientProvider>
 );

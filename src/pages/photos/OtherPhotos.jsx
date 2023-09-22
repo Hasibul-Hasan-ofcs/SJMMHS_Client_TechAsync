@@ -6,6 +6,8 @@ import { Oval } from "react-loader-spinner";
 import { Link, useParams } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import style from "./css/pg.module.css";
+import { BsZoomIn } from "react-icons/bs";
 
 const OtherPhotos = () => {
   SetPageTitle("ফটোগ্যালারী");
@@ -13,7 +15,7 @@ const OtherPhotos = () => {
   const { id } = useParams();
 
   const { isLoading, data } = PhotoGalleryByIdAPI(id);
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="container mx-auto min-h-[400px] my-14 bg-white rounded-2xl">
@@ -41,8 +43,11 @@ const OtherPhotos = () => {
             {data[0].other_images.map((el, indx) => (
               <div className="p-1 w-full md:w-[50%] lg:w-[33%]" key={indx}>
                 <div className="p-1 shadow border">
-                  <div className={`w-full h-[250px] relative overflow-hidden`}>
-                    <Link to={``} className={`block h-full w-full relative`}>
+                  <div className={`w-full h-[250px] overflow-hidden`}>
+                    <Link
+                      to={``}
+                      className={`${style.img_link} block h-full w-full relative`}
+                    >
                       <PhotoView key={indx} src={el}>
                         <img
                           src={el}
@@ -50,6 +55,13 @@ const OtherPhotos = () => {
                           className="w-full h-full hover:scale-105 transition_common"
                         />
                       </PhotoView>
+                      {/* <span className={`${style.span} transition_common`}>
+                        <span className="h-full w-full flex items-center justify-center">
+                          <span className="text-white font-bold text-2xl">
+                            <BsZoomIn />
+                          </span>
+                        </span>
+                      </span> */}
                     </Link>
                   </div>
                 </div>

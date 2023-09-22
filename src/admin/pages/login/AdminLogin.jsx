@@ -30,7 +30,7 @@ const AdminLogin = () => {
       .then((userCredential) => {
         const userTemp = userCredential.user;
         console.log(userTemp);
-        navigate("/admin/dashboard");
+        navigate("/admin/dashboard/student-information");
       })
       .catch((err) => {
         console.log(err);
