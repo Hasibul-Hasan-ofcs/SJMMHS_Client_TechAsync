@@ -15,16 +15,19 @@ import ShortCutNavigatorHome from "../../components/shortcut_nav_home/ShortCutNa
 import NoticeBoard from "../../components/notice_board/NoticeBoard";
 import OfficialLinks from "../../components/official_links/OfficialLinks";
 import ImportantInformation from "../../components/important_information/ImportantInformation";
+import { NoticeAPI } from "../../api/NoticeAPI";
 
 const Home = () => {
   SetPageTitle("Sattar Jute Mills Model High School");
 
+  const { isLoading, data } = NoticeAPI();
+
   return (
     <div className="container my-4 p-2 md:p-3 mx-auto bg-white shadow">
       <IntroCarousel></IntroCarousel>
-      <SpecialAnnouncements></SpecialAnnouncements>
+      {!isLoading && <SpecialAnnouncements data={data}></SpecialAnnouncements>}
       <div className="flex flex-wrap">
-        <div className="w-full lg:w-[75%] lg:pe-2 pb-4">
+        <div className="w-full lg:w-[75%] lg:pe-2 flex flex-col justify-between">
           <InstitutionHistory></InstitutionHistory>
           <PrincipalsMessage></PrincipalsMessage>
           <div className="flex flex-wrap gap-4">
@@ -56,7 +59,7 @@ const Home = () => {
         </div>
         <div className="w-full lg:w-[25%] lg:ps-2 flex flex-col gap-5">
           <ShortCutNavigatorHome></ShortCutNavigatorHome>
-          <NoticeBoard></NoticeBoard>
+          {!isLoading && <NoticeBoard data={data}></NoticeBoard>}
           <OfficialLinks></OfficialLinks>
           <ImportantInformation></ImportantInformation>
         </div>

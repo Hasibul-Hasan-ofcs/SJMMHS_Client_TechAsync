@@ -7,7 +7,7 @@ const Videos = () => {
       <h1 className="pt-6 pb-5 text-center text-3xl">ভিডিও গ্যালারী</h1>
       <CustomUnderline></CustomUnderline>
 
-      <h3 className="text-2xl text-[#013c57] font-bold text-center">
+      <h3 className="text-2xl text-[#013c57] font-bold text-center pt-9">
         Looks like no Video Uploaded yet
       </h3>
     </div>

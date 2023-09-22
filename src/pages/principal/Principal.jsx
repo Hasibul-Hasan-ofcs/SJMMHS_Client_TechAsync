@@ -13,12 +13,12 @@ const Principal = () => {
       <h1 className="pt-4 pb-5 text-center text-3xl">প্রধান শিক্ষক</h1>
       <CustomUnderline></CustomUnderline>
 
-      <div className="py-12">
-        <div className="h-auto w-[300px] float-left pe-4 pb-4">
+      <div className="py-12 flex flex-col lg:flex-row">
+        <div className="h-auto w-full lg:w-[30%] pe-4 pb-4 flex items-center justify-center flex-col">
           <img
             src="https://educational.deshiit.net/wp-content/uploads/2023/08/WhatsApp-Image-2022-11-23-at-2.18.45-PM-2.jpeg"
             alt="school image"
-            className="rounded-2xl w-full"
+            className="rounded-2xl w-[500px]"
           />
           <div className="flex gap-2 py-3 justify-center">
             <a
@@ -47,7 +47,7 @@ const Principal = () => {
             </a>
           </div>
         </div>
-        <div className="flex gap-4 flex-col">
+        <div className="w-full lg:w-[70%] flex gap-4 flex-col">
           <h1 className="text-4xl text-[#051939]">আবুল কালাম আজাদ</h1>
           <p className="text-[#9A462D]">
             প্রধান শিক্ষক <br /> নাম্বার : 01711-000000
