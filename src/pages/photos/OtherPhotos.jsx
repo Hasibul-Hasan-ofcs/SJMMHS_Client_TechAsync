@@ -4,6 +4,8 @@ import { PhotoGalleryByIdAPI } from "../../api/PhotoGalleryByIdAPI";
 import SetPageTitle from "../../components/page_title/SetPageTitle";
 import { Oval } from "react-loader-spinner";
 import { Link, useParams } from "react-router-dom";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const OtherPhotos = () => {
   SetPageTitle("ফটোগ্যালারী");
@@ -34,23 +36,27 @@ const OtherPhotos = () => {
           />
         </div>
       ) : (
-        <div className="flex flex-wrap flex-row px-1 py-16">
-          {data[0].other_images.map((el, indx) => (
-            <div className="p-1 w-full md:w-[50%] lg:w-[33%]" key={indx}>
-              <div className="p-1 shadow border">
-                <div className={`w-full h-[250px] relative overflow-hidden`}>
-                  <Link to={``} className={`block h-full w-full relative`}>
-                    <img
-                      src={el}
-                      alt="school photos"
-                      className="w-full h-full hover:scale-105 transition_common"
-                    />
-                  </Link>
+        <PhotoProvider>
+          <div className="foo flex flex-wrap flex-row px-1 py-16">
+            {data[0].other_images.map((el, indx) => (
+              <div className="p-1 w-full md:w-[50%] lg:w-[33%]" key={indx}>
+                <div className="p-1 shadow border">
+                  <div className={`w-full h-[250px] relative overflow-hidden`}>
+                    <Link to={``} className={`block h-full w-full relative`}>
+                      <PhotoView key={indx} src={el}>
+                        <img
+                          src={el}
+                          alt="school photos"
+                          className="w-full h-full hover:scale-105 transition_common"
+                        />
+                      </PhotoView>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </PhotoProvider>
       )}
     </div>
   );
