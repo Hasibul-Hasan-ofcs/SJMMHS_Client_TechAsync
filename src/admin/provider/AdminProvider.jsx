@@ -15,6 +15,7 @@ const auth = getAuth(app);
 const AdminProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [sideBarActive, setSideBarActive] = useState(false);
 
   const login = (email, password) => {
     setLoading(true);
@@ -41,6 +42,8 @@ const AdminProvider = ({ children }) => {
     setLoading,
     login,
     logout,
+    sideBarActive,
+    setSideBarActive,
   };
 
   return (

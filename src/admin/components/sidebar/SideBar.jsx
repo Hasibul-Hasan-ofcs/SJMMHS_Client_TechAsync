@@ -1,88 +1,132 @@
-import {
-  Card,
-  Typography,
-  List,
-  ListItem,
-  ListItemPrefix,
-} from "@material-tailwind/react";
-import { PresentationChartBarIcon } from "@heroicons/react/24/solid";
+import React, { useContext } from "react";
+import style from "./css/drawer.module.css";
+import { RxCross1 } from "react-icons/rx";
+import { AdminContext } from "../../provider/AdminProvider";
+import { List, ListItem } from "@material-tailwind/react";
 import ActiveRoute from "../dashboard_active_route/ActiveRoute";
 
-const SideBar = () => {
+const Sidebar = () => {
+  const contextData = useContext(AdminContext);
+
+  let sideBarActiveData = contextData?.sideBarActive,
+    setSideBarActiveData = contextData?.setSideBarActive;
+
+  let cstmStyle, overlayStyle, closeBtnStyle;
+
+  if (sideBarActiveData) {
+    cstmStyle = {
+      display: "block",
+      left: 0,
+    };
+
+    overlayStyle = {
+      display: "block",
+    };
+
+    closeBtnStyle = {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    };
+  }
+
+  const closeSideBarHandler = () => {
+    if (setSideBarActiveData) setSideBarActiveData(false);
+  };
+
   return (
-    <Card className="h-[100vh] w-full max-w-[20rem] p-4 shadow-xl border shadow-blue-gray-900/5">
-      <div className="mb-2 p-4">
-        <Typography variant="h5" color="blue-gray">
-          Sjmmhs-techasync
-        </Typography>
+    <>
+      <div
+        className={style.overlay}
+        style={overlayStyle}
+        onClick={closeSideBarHandler}
+      ></div>
+      <button
+        className={style.close_sidebar_btn}
+        style={closeBtnStyle}
+        onClick={closeSideBarHandler}
+      >
+        <RxCross1></RxCross1>
+      </button>
+      <div className={style.drawer} style={cstmStyle}>
+        <div className={`${style.drawer_items} flex flex-col gap-2`}>
+          <div className="py-9 flex items-center justify-center">
+            <img
+              src="/png/deshiit.png"
+              className="h-[60px] bg-[#013C57] rounded-lg"
+              alt="main logo"
+            />
+          </div>
+
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/student-information">
+              <ListItem>শিক্ষার্থীদের তথ্য</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/holidays">
+              <ListItem>ছুটির তালিকা</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/holidays">
+              <ListItem>কক্ষ সংখ্যা</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/holidays">
+              <ListItem>ছাত্রছাত্রীর আসন সংখ্যা</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/holidays">
+              <ListItem>সার্কুলার</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/holidays">
+              <ListItem>নোটিশ</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/holidays">
+              <ListItem>ফলাফল</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/holidays">
+              <ListItem>শিক্ষকবৃন্দ</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/holidays">
+              <ListItem>পরিচালনা পরিষদ</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/holidays">
+              <ListItem>ম্যানেজিং কমিটি</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/holidays">
+              <ListItem>কর্মকর্তা কর্মচারী</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/holidays">
+              <ListItem>প্রাক্তন প্রধান শিক্ষক</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/holidays">
+              <ListItem>কৃতি শিক্ষার্থী</ListItem>
+            </ActiveRoute>
+          </List>
+        </div>
       </div>
-      <List className="py-[2px]">
-        <ActiveRoute>
-          <ListItem>শিক্ষার্থীদের তথ্য</ListItem>
-        </ActiveRoute>
-      </List>
-      {/* <List className="py-[2px]">
-        <ActiveRoute>
-          <ListItem>ছুটির তালিকা</ListItem>
-        </ActiveRoute>
-      </List>
-      <List className="py-[2px]">
-        <ActiveRoute>
-          <ListItem>কক্ষ সংখ্যা</ListItem>
-        </ActiveRoute>
-      </List>
-      <List className="py-[2px]">
-        <ActiveRoute>
-          <ListItem>ছাত্রছাত্রীর আসন সংখ্যা</ListItem>
-        </ActiveRoute>
-      </List>
-      <List className="py-[2px]">
-        <ActiveRoute>
-          <ListItem>সার্কুলার</ListItem>
-        </ActiveRoute>
-      </List>
-      <List className="py-[2px]">
-        <ActiveRoute>
-          <ListItem>নোটিশ</ListItem>
-        </ActiveRoute>
-      </List>
-      <List className="py-[2px]">
-        <ActiveRoute>
-          <ListItem>ফলাফল</ListItem>
-        </ActiveRoute>
-      </List>
-      <List className="py-[2px]">
-        <ActiveRoute>
-          <ListItem>শিক্ষকবৃন্দ</ListItem>
-        </ActiveRoute>
-      </List>
-      <List className="py-[2px]">
-        <ActiveRoute>
-          <ListItem>পরিচালনা পরিষদ</ListItem>
-        </ActiveRoute>
-      </List>
-      <List className="py-[2px]">
-        <ActiveRoute>
-          <ListItem>ম্যানেজিং কমিটি</ListItem>
-        </ActiveRoute>
-      </List>
-      <List className="py-[2px]">
-        <ActiveRoute>
-          <ListItem>কর্মকর্তা কর্মচারী</ListItem>
-        </ActiveRoute>
-      </List>
-      <List className="py-[2px]">
-        <ActiveRoute>
-          <ListItem>প্রাক্তন প্রধান শিক্ষক</ListItem>
-        </ActiveRoute>
-      </List>
-      <List className="py-[2px]">
-        <ActiveRoute>
-          <ListItem>কৃতি শিক্ষার্থী</ListItem>
-        </ActiveRoute>
-      </List> */}
-    </Card>
+    </>
   );
 };
 
-export default SideBar;
+export default Sidebar;

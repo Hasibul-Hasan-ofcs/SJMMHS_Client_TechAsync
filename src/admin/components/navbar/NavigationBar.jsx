@@ -95,6 +95,7 @@ function ProfileMenu() {
 
 const NavigationBar = () => {
   const [isNavOpen, setIsNavOpen] = React.useState(false);
+  const { setSideBarActive } = useContext(AdminContext);
 
   const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
 
@@ -106,12 +107,12 @@ const NavigationBar = () => {
   }, []);
 
   return (
-    <Navbar className="mx-auto max-w-[1200px] p-2 lg:rounded-2 sticky top-5 left-3 z-20">
+    <Navbar className="mx-auto max-w-[1200px] p-2 lg:rounded-2 sticky top-5 left-3 z-50 border border-gray-300">
       <div className="relative mx-auto flex items-center text-blue-gray-900">
         <Typography
           as="a"
           href="#"
-          className="mr-4 ml-2 cursor-pointer py-1.5 font-medium"
+          className="mr-4 ml-2 cursor-pointer py-1.5 font-medium bg-blue-600 text-white uppercase rounded px-4"
         >
           Admin
         </Typography>
@@ -120,7 +121,8 @@ const NavigationBar = () => {
           size="sm"
           color="blue-gray"
           variant="text"
-          onClick={toggleIsNavOpen}
+          // onClick={toggleIsNavOpen}
+          onClick={() => setSideBarActive(true)}
           className="ml-auto mr-2 lg:hidden"
         >
           <Bars2Icon className="h-6 w-6" />

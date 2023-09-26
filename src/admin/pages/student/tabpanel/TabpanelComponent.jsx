@@ -1,45 +1,45 @@
-import React, { useEffect } from "react";
-import { TabPanel, Card, Typography, Button } from "@material-tailwind/react";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  TabPanel,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+  Card,
+  Typography,
+  Button,
+  Input,
+} from "@material-tailwind/react";
 import { Oval } from "react-loader-spinner";
 import { StudentInfoAPI } from "../../../../api/StudentInfoAPI";
-import Swal from "sweetalert2";
+import onDeleteHandler from "./delete_handler/DeleteHandler";
+import editHandler from "./edit_handler/EditHandler";
 
 const TABLE_HEAD = ["serial", "name", "reg. no.", "actions"];
 
 const TabpanelComponent = ({ value }) => {
-  const { isLoading, data } = StudentInfoAPI(value);
+  const { isLoading, refetch, data } = StudentInfoAPI(value);
+  const [open, setOpen] = useState(false);
+  const [stName, setStName] = useState("");
+  const [stReg, setStReg] = useState("");
+  const [_id, set_id] = useState("");
 
-  const onDeleteHandler = (_id, value) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`https://sjmmhs-server-techasync.vercel.app/${value}/${_id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((response) => {
-            if (response.status === 200) {
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            } else if (response.status === 404) {
-              console.error("Item not found");
-            } else {
-              console.error("Error deleting item");
-            }
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      }
-    });
+  const nameRef = useRef();
+  const regRef = useRef();
+
+  const setNameHandler = (e) => {
+    setStName(e.target.value);
+  };
+
+  const setRegHandler = (e) => {
+    setStReg(e.target.value);
+  };
+
+  const handleOpen = (_id, reg, name) => {
+    setOpen(!open);
+    setStName(name);
+    setStReg(reg);
+    set_id(_id);
   };
 
   return (
@@ -123,16 +123,22 @@ const TabpanelComponent = ({ value }) => {
                           color="blue-gray"
                           className="font-normal"
                         >
-                          {/* <Button color="blue-gray" className="mx-1">
-                            Edit
-                          </Button> */}
                           <Button
                             color="red"
                             className="mx-1"
-                            onClick={() => onDeleteHandler(_id, value)}
+                            onClick={() => onDeleteHandler(_id, value, refetch)}
                           >
                             Delete
                           </Button>
+
+                          <>
+                            <Button
+                              onClick={() => handleOpen(_id, reg, name)}
+                              variant="gradient"
+                            >
+                              Edit
+                            </Button>
+                          </>
                         </Typography>
                       </td>
                     </tr>
@@ -140,6 +146,53 @@ const TabpanelComponent = ({ value }) => {
                 })}
             </tbody>
           </table>
+          <Dialog open={open} handler={handleOpen}>
+            <form
+              onSubmit={(e) =>
+                editHandler(e, _id, value, refetch, stName, stReg)
+              }
+            >
+              <DialogHeader>Edit Student Information</DialogHeader>
+              <DialogBody>
+                <input
+                  type="text"
+                  name="name"
+                  value={stName}
+                  ref={nameRef}
+                  onChange={setNameHandler}
+                  placeholder="Student name"
+                  className="border border-gray-500 rounded p-3 text-xl font-semibold w-full my-4 shadow"
+                />
+                <input
+                  type="text"
+                  name="reg"
+                  value={stReg}
+                  ref={regRef}
+                  onChange={setRegHandler}
+                  placeholder="Student Registration No."
+                  className="border border-gray-500 rounded p-3 text-xl font-semibold w-full my-4 shadow"
+                />
+              </DialogBody>
+              <DialogFooter>
+                <Button
+                  variant="text"
+                  color="red"
+                  onClick={handleOpen}
+                  className="mr-1"
+                >
+                  <span>Cancel</span>
+                </Button>
+                <Button
+                  variant="gradient"
+                  color="green"
+                  onClick={handleOpen}
+                  type="submit"
+                >
+                  <span>Confirm</span>
+                </Button>
+              </DialogFooter>
+            </form>
+          </Dialog>
         </Card>
       )}
     </TabPanel>
