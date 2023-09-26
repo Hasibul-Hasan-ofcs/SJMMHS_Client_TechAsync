@@ -4,7 +4,7 @@ const addHandler = (e, stName, stReg, classValue) => {
   e.preventDefault();
   const value = classValue;
 
-  fetch(`http://localhost:5000/student-info/${value}`, {
+  fetch(`https://sjmmhs-server-techasync.vercel.app/student-info/${value}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

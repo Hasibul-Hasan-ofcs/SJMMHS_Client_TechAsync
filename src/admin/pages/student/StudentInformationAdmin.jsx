@@ -12,6 +12,7 @@ import {
 } from "@material-tailwind/react";
 import TabpanelComponent from "./tabpanel/TabpanelComponent";
 import { FiPlusCircle } from "react-icons/fi";
+import addHandler from "./tabpanel/add_handler/AddHandler";
 
 const data = [
   {
