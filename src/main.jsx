@@ -39,6 +39,15 @@ import Download from "./pages/download/Download.jsx";
 import Routine from "./pages/routine/Routine.jsx";
 import HomeContextProvider from "./context/HomeContextProvider.jsx";
 import StudentInformationAdmin from "./admin/pages/student/StudentInformationAdmin.jsx";
+import HolidaysAdmin from "./admin/pages/holidays/HolidaysAdmin.jsx";
+import NoOfRoomsAdmin from "./admin/pages/no_of_rooms/NoOfRoomsAdmin.jsx";
+import CircularAdmin from "./admin/pages/circular/CircularAdmin.jsx";
+import NoOfSeatsAdmin from "./admin/pages/no_of_seats/NoOfSeatsAdmin.jsx";
+import NoticeAdmin from "./admin/pages/notice/NoticeAdmin.jsx";
+import StaffAdmin from "./admin/pages/staff/StaffAdmin.jsx";
+import BlogsAdmin from "./admin/pages/blogs/BlogsAdmin.jsx";
+import TeachersAdmin from "./admin/pages/teachers/TeachersAdmin.jsx";
+import SuccessfulStudentsAdmin from "./admin/pages/successful_students/SuccessfulStudentsAdmin.jsx";
 
 const queryClient = new QueryClient();
 
@@ -192,6 +201,46 @@ const router = createBrowserRouter([
           {
             path: "/admin/dashboard/student-information",
             element: <StudentInformationAdmin></StudentInformationAdmin>,
+          },
+          {
+            path: "/admin/dashboard/holidays",
+            element: <HolidaysAdmin></HolidaysAdmin>,
+          },
+          {
+            path: "/admin/dashboard/no-of-rooms",
+            element: <NoOfRoomsAdmin></NoOfRoomsAdmin>,
+          },
+          {
+            path: "/admin/dashboard/circular",
+            element: <CircularAdmin></CircularAdmin>,
+          },
+          {
+            path: "/admin/dashboard/no-of-seats",
+            element: <NoOfSeatsAdmin></NoOfSeatsAdmin>,
+          },
+          {
+            path: "/admin/dashboard/notices",
+            element: <NoticeAdmin></NoticeAdmin>,
+          },
+          {
+            path: "/admin/dashboard/management",
+            element: <NoticeAdmin></NoticeAdmin>,
+          },
+          {
+            path: "/admin/dashboard/staffs",
+            element: <StaffAdmin></StaffAdmin>,
+          },
+          {
+            path: "/admin/dashboard/successful-students",
+            element: <SuccessfulStudentsAdmin></SuccessfulStudentsAdmin>,
+          },
+          {
+            path: "/admin/dashboard/teachers",
+            element: <TeachersAdmin></TeachersAdmin>,
+          },
+          {
+            path: "/admin/dashboard/blogs",
+            element: <BlogsAdmin></BlogsAdmin>,
           },
         ],
       },

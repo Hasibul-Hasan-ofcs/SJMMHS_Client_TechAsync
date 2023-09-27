@@ -1,21 +1,30 @@
-import React from "react";
-import CustomUnderline from "../../components/custom_underline/CustomUnderline";
+import { Button, Card, Typography } from "@material-tailwind/react";
+import React, { useState } from "react";
+import { FiPlusCircle } from "react-icons/fi";
 import { Oval } from "react-loader-spinner";
-import SetPageTitle from "../../components/page_title/SetPageTitle";
-import { StaffAPI } from "../../api/StaffAPI";
-import { Card, Typography } from "@material-tailwind/react";
+import { CircularAPI } from "../../../api/CircularAPI";
 
-const TABLE_HEAD = ["সিরিয়াল", "নাম", "্পদ", "ফোন"];
+const TABLE_HEAD = ["সিরিয়াল", "পদ", "ঠিকানা", "বিবরণ", "একশন"];
 
-const Staff = () => {
-  SetPageTitle("কর্মকর্তা কর্মচারী");
+const CircularAdmin = () => {
+  const [open, setOpen] = useState(false);
 
-  const { isLoading, data } = StaffAPI();
+  const { isLoading, data } = CircularAPI();
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
 
   return (
-    <div className="container mx-auto min-h-[400px] my-14 bg-white rounded-2xl">
-      <h1 className="pt-6 pb-5 text-center text-3xl">কর্মকর্তা কর্মচারী</h1>
-      <CustomUnderline></CustomUnderline>
+    <div className="py-8 pe-6">
+      <div className="flex items-center justify-center py-10">
+        <Button
+          onClick={handleOpen}
+          className="text-white rounded-md bg-[#013C57] w-[250px] py-4 text-base flex items-center justify-center"
+        >
+          <FiPlusCircle className="pe-3 text-4xl" /> ADD NEW HOLIDAY
+        </Button>
+      </div>
 
       {isLoading ? (
         <div className="flex justify-center items-center">
@@ -54,7 +63,7 @@ const Staff = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map(({ name, designation, phone_number, _id }, index) => {
+              {data.map(({ Position, Location, Description, _id }, index) => {
                 const isLast = index === data.length - 1;
                 const classes = isLast
                   ? "p-4"
@@ -77,16 +86,7 @@ const Staff = () => {
                         color="blue-gray"
                         className="font-normal"
                       >
-                        {name}
-                      </Typography>
-                    </td>
-                    <td className={`${classes} bg-blue-gray-50/50`}>
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal w-[600px]"
-                      >
-                        {designation}
+                        {Position}
                       </Typography>
                     </td>
                     <td className={classes}>
@@ -95,7 +95,31 @@ const Staff = () => {
                         color="blue-gray"
                         className="font-normal"
                       >
-                        {phone_number}
+                        {Location}
+                      </Typography>
+                    </td>
+                    <td className={`${classes} bg-blue-gray-50/50`}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal w-[200px]"
+                      >
+                        {Description}
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal"
+                      >
+                        <Button
+                          color="red"
+                          className="mx-1"
+                          onClick={() => onDeleteHandler(_id)}
+                        >
+                          Delete
+                        </Button>
                       </Typography>
                     </td>
                   </tr>
@@ -109,4 +133,4 @@ const Staff = () => {
   );
 };
 
-export default Staff;
+export default CircularAdmin;

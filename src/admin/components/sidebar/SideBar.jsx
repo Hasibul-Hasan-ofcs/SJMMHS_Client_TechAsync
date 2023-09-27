@@ -69,57 +69,57 @@ const Sidebar = () => {
             </ActiveRoute>
           </List>
           <List className="py-[2px]">
-            <ActiveRoute to="/admin/dashboard/holidays">
+            <ActiveRoute to="/admin/dashboard/no-of-rooms">
               <ListItem>কক্ষ সংখ্যা</ListItem>
             </ActiveRoute>
           </List>
           <List className="py-[2px]">
-            <ActiveRoute to="/admin/dashboard/holidays">
-              <ListItem>ছাত্রছাত্রীর আসন সংখ্যা</ListItem>
-            </ActiveRoute>
-          </List>
-          <List className="py-[2px]">
-            <ActiveRoute to="/admin/dashboard/holidays">
+            <ActiveRoute to="/admin/dashboard/circular">
               <ListItem>সার্কুলার</ListItem>
             </ActiveRoute>
           </List>
           <List className="py-[2px]">
-            <ActiveRoute to="/admin/dashboard/holidays">
+            <ActiveRoute to="/admin/dashboard/no-of-seats">
+              <ListItem>ছাত্রছাত্রীর আসন সংখ্যা</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/notices">
               <ListItem>নোটিশ</ListItem>
             </ActiveRoute>
           </List>
           <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/blogs">
+              <ListItem>ব্লগ</ListItem>
+            </ActiveRoute>
+          </List>
+          {/* <List className="py-[2px]">
             <ActiveRoute to="/admin/dashboard/holidays">
               <ListItem>ফলাফল</ListItem>
             </ActiveRoute>
-          </List>
+          </List> */}
           <List className="py-[2px]">
-            <ActiveRoute to="/admin/dashboard/holidays">
+            <ActiveRoute to="/admin/dashboard/teachers">
               <ListItem>শিক্ষকবৃন্দ</ListItem>
             </ActiveRoute>
           </List>
           <List className="py-[2px]">
-            <ActiveRoute to="/admin/dashboard/holidays">
-              <ListItem>পরিচালনা পরিষদ</ListItem>
-            </ActiveRoute>
-          </List>
-          <List className="py-[2px]">
-            <ActiveRoute to="/admin/dashboard/holidays">
+            <ActiveRoute to="/admin/dashboard/management">
               <ListItem>ম্যানেজিং কমিটি</ListItem>
             </ActiveRoute>
           </List>
           <List className="py-[2px]">
-            <ActiveRoute to="/admin/dashboard/holidays">
+            <ActiveRoute to="/admin/dashboard/staffs">
               <ListItem>কর্মকর্তা কর্মচারী</ListItem>
             </ActiveRoute>
           </List>
-          <List className="py-[2px]">
+          {/* <List className="py-[2px]">
             <ActiveRoute to="/admin/dashboard/holidays">
               <ListItem>প্রাক্তন প্রধান শিক্ষক</ListItem>
             </ActiveRoute>
-          </List>
+          </List> */}
           <List className="py-[2px]">
-            <ActiveRoute to="/admin/dashboard/holidays">
+            <ActiveRoute to="/admin/dashboard/successful-students">
               <ListItem>কৃতি শিক্ষার্থী</ListItem>
             </ActiveRoute>
           </List>

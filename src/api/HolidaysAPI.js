@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const HolidaysAPI = () => {
-  const { isLoading, error, data } = useQuery({
+  const { isLoading, refetch, error, data } = useQuery({
     queryKey: ["holidays"],
     queryFn: () =>
       axios
@@ -15,7 +15,7 @@ const HolidaysAPI = () => {
         }),
   });
 
-  return { isLoading, error, data };
+  return { isLoading, refetch, error, data };
 };
 
 export { HolidaysAPI };
