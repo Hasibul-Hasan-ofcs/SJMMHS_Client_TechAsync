@@ -1,7 +1,6 @@
 import Swal from "sweetalert2";
 
-const addHandler = (e, stName, stReg, classValue) => {
-  e.preventDefault();
+const addHandler = (stName, stReg, classValue) => {
   const value = classValue;
 
   fetch(`https://sjmmhs-server-techasync.vercel.app/student-info/${value}`, {
@@ -15,7 +14,6 @@ const addHandler = (e, stName, stReg, classValue) => {
       if (response.status === 200) {
         console.log(response);
         Swal.fire("Student Added!", "Your file has been Updated.", "success");
-        refetch();
       } else {
         console.error("Error adding item");
       }

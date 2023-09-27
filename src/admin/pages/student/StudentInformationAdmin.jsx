@@ -5,14 +5,10 @@ import {
   TabsBody,
   Tab,
   Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
 } from "@material-tailwind/react";
 import TabpanelComponent from "./tabpanel/TabpanelComponent";
 import { FiPlusCircle } from "react-icons/fi";
-import addHandler from "./tabpanel/add_handler/AddHandler";
+import AddStudent from "./add_student_modal/AddStudent";
 
 const data = [
   {
@@ -39,21 +35,7 @@ const data = [
 
 const StudentInformationAdmin = () => {
   const [open, setOpen] = useState(false);
-  const [stName, setStName] = useState("");
-  const [stReg, setStReg] = useState("");
-  const [classValue, setClassValue] = useState("");
-
-  const setNameHandler = (e) => {
-    setStName(e.target.value);
-  };
-
-  const setRegHandler = (e) => {
-    setStReg(e.target.value);
-  };
-
-  const setClassHandler = (e) => {
-    setClassValue(e.target.value);
-  };
+  const [reRender, setRerender] = useState(false);
 
   const handleOpen = () => {
     setOpen(!open);
@@ -90,55 +72,12 @@ const StudentInformationAdmin = () => {
         </TabsBody>
       </Tabs>
 
-      <Dialog open={open} handler={handleOpen}>
-        <form onSubmit={(e) => addHandler(e, stName, stReg, classValue)}>
-          <DialogHeader>Add Student Information</DialogHeader>
-          <DialogBody>
-            <input
-              type="text"
-              name="name"
-              value={stName}
-              onChange={setNameHandler}
-              placeholder="Student name"
-              className="border border-gray-500 rounded p-3 text-xl font-semibold w-full my-4 shadow"
-            />
-            <input
-              type="text"
-              name="reg"
-              value={stReg}
-              onChange={setRegHandler}
-              placeholder="Student Registration No."
-              className="border border-gray-500 rounded p-3 text-xl font-semibold w-full my-4 shadow"
-            />
-            <input
-              type="text"
-              name="className"
-              value={classValue}
-              onChange={setClassHandler}
-              placeholder="Student Class"
-              className="border border-gray-500 rounded p-3 text-xl font-semibold w-full my-4 shadow"
-            />
-          </DialogBody>
-          <DialogFooter>
-            <Button
-              variant="text"
-              color="red"
-              onClick={handleOpen}
-              className="mr-1"
-            >
-              <span>Cancel</span>
-            </Button>
-            <Button
-              variant="gradient"
-              color="green"
-              onClick={handleOpen}
-              type="submit"
-            >
-              <span>Add</span>
-            </Button>
-          </DialogFooter>
-        </form>
-      </Dialog>
+      <AddStudent
+        open={open}
+        handleOpen={handleOpen}
+        reRender={reRender}
+        setRerender={setRerender}
+      ></AddStudent>
     </div>
   );
 };

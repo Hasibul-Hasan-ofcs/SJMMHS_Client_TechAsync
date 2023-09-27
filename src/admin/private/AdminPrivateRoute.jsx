@@ -8,16 +8,16 @@ const AdminPrivateRoute = ({ children }) => {
 
   if (loading)
     return (
-      <div className="d-flex py-5 justify-content-center">
+      <div className="flex justify-center items-center w-full min-h-screen">
         <Oval
           height={80}
           width={80}
-          color="#4fa94d"
+          color="#013C57"
           wrapperStyle={{}}
           wrapperClass=""
           visible={true}
           ariaLabel="oval-loading"
-          secondaryColor="#4fa94d"
+          secondaryColor="#013C57"
           strokeWidth={2}
           strokeWidthSecondary={2}
         />
