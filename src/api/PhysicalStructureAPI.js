@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const PhysicalStructureAPI = () => {
-  const { isLoading, error, data } = useQuery({
+  const { isLoading, refetch, error, data } = useQuery({
     queryKey: ["physicalstructureapi"],
     queryFn: () =>
       axios
@@ -15,7 +15,7 @@ const PhysicalStructureAPI = () => {
         }),
   });
 
-  return { isLoading, error, data };
+  return { isLoading, refetch, error, data };
 };
 
 export { PhysicalStructureAPI };

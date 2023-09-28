@@ -54,55 +54,53 @@ const Teachers = () => {
               </tr>
             </thead>
             <tbody>
-              {data[0].teachers.map(
-                ({ name, designation, phone_number, _id }, index) => {
-                  const isLast = index === data.length - 1;
-                  const classes = isLast
-                    ? "p-4"
-                    : "p-4 border-b border-blue-gray-50";
+              {data.map(({ name, designation, phone_number, _id }, index) => {
+                const isLast = index === data.length - 1;
+                const classes = isLast
+                  ? "p-4"
+                  : "p-4 border-b border-blue-gray-50";
 
-                  return (
-                    <tr key={_id}>
-                      <td className={classes}>
-                        <Typography
-                          variant="small"
-                          color="blue-gray"
-                          className="font-normal"
-                        >
-                          {index + 1}
-                        </Typography>
-                      </td>
-                      <td className={classes}>
-                        <Typography
-                          variant="small"
-                          color="blue-gray"
-                          className="font-normal"
-                        >
-                          {name}
-                        </Typography>
-                      </td>
-                      <td className={`${classes} bg-blue-gray-50/50`}>
-                        <Typography
-                          variant="small"
-                          color="blue-gray"
-                          className="font-normal w-[600px]"
-                        >
-                          {designation}
-                        </Typography>
-                      </td>
-                      <td className={classes}>
-                        <Typography
-                          variant="small"
-                          color="blue-gray"
-                          className="font-normal"
-                        >
-                          {phone_number}
-                        </Typography>
-                      </td>
-                    </tr>
-                  );
-                }
-              )}
+                return (
+                  <tr key={_id}>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal"
+                      >
+                        {index + 1}
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal"
+                      >
+                        {name}
+                      </Typography>
+                    </td>
+                    <td className={`${classes} bg-blue-gray-50/50`}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal w-[600px]"
+                      >
+                        {designation}
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-normal"
+                      >
+                        {phone_number}
+                      </Typography>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </Card>

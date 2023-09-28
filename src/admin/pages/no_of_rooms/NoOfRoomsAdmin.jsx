@@ -3,16 +3,36 @@ import { NoOfRoomsAPI } from "../../../api/NoOfRoomsAPI";
 import { Button, Card, Typography } from "@material-tailwind/react";
 import { Oval } from "react-loader-spinner";
 import { FiPlusCircle } from "react-icons/fi";
+import AddNoOfRooms from "./add_no_of_rooms_modal/AddNoOfRooms";
+import Swal from "sweetalert2";
+import { DeleteNoOfRoomsAdminAPI } from "../../API/no_of_rooms/DeleteNoOfRoomsAdminAPI";
 
 const TABLE_HEAD = ["সিরিয়াল", "ফ্লোর", "ক্লাস সংখ্যা", "একশন"];
 
 const NoOfRoomsAdmin = () => {
-  const { isLoading, data } = NoOfRoomsAPI();
+  const { isLoading, refetch, data } = NoOfRoomsAPI();
 
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(!open);
+  };
+
+  const onDeleteHandler = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        DeleteNoOfRoomsAdminAPI(_id);
+        refetch();
+      }
+    });
   };
 
   return (
@@ -121,6 +141,11 @@ const NoOfRoomsAdmin = () => {
           </table>
         </Card>
       )}
+      <AddNoOfRooms
+        open={open}
+        handleOpen={handleOpen}
+        refetch={refetch}
+      ></AddNoOfRooms>
     </div>
   );
 };

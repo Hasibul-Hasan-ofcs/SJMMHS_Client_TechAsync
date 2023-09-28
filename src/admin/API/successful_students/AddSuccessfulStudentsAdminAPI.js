@@ -8,7 +8,7 @@ const AddSuccessfulStudentsAdminAPI = (
   stclass_of_success
 ) => {
   axios
-    .post("http://localhost:5000/holidays", {
+    .post("https://sjmmhs-server-techasync.vercel.app/successful-students", {
       name: stname,
       achievement: stachievement,
       passing_year: stpassing_year,

@@ -5,7 +5,7 @@ const DeleteCircularAdminAPI = (_id) => {
   const id = _id;
 
   axios
-    .delete(`http://localhost:5000/circular/${id}`)
+    .delete(`https://sjmmhs-server-techasync.vercel.app/circular/${id}`)
     .then(function (response) {
       console.log(response);
       Swal.fire("Circular successfully deleted!");

@@ -48,6 +48,8 @@ import StaffAdmin from "./admin/pages/staff/StaffAdmin.jsx";
 import BlogsAdmin from "./admin/pages/blogs/BlogsAdmin.jsx";
 import TeachersAdmin from "./admin/pages/teachers/TeachersAdmin.jsx";
 import SuccessfulStudentsAdmin from "./admin/pages/successful_students/SuccessfulStudentsAdmin.jsx";
+import ManagementAdmin from "./admin/pages/management/ManagementAdmin.jsx";
+import ResultsAdmin from "./admin/pages/results/ResultsAdmin.jsx";
 
 const queryClient = new QueryClient();
 
@@ -224,7 +226,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/admin/dashboard/management",
-            element: <NoticeAdmin></NoticeAdmin>,
+            element: <ManagementAdmin></ManagementAdmin>,
           },
           {
             path: "/admin/dashboard/staffs",
@@ -241,6 +243,10 @@ const router = createBrowserRouter([
           {
             path: "/admin/dashboard/blogs",
             element: <BlogsAdmin></BlogsAdmin>,
+          },
+          {
+            path: "/admin/dashboard/results",
+            element: <ResultsAdmin></ResultsAdmin>,
           },
         ],
       },

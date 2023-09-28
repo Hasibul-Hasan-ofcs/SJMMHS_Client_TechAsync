@@ -54,7 +54,7 @@ const SuccessfulStudent = () => {
               </tr>
             </thead>
             <tbody>
-              {data[0].successful_students.map(
+              {data.map(
                 (
                   { name, achievement, passing_year, class_of_success, _id },
                   index

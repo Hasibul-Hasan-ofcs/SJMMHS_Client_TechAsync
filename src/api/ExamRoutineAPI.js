@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const ExamRoutineAPI = () => {
-  const { isLoading, error, data } = useQuery({
+  const { isLoading, refetch, error, data } = useQuery({
     queryKey: ["examroutineapi"],
     queryFn: () =>
       axios
@@ -15,7 +15,7 @@ const ExamRoutineAPI = () => {
         }),
   });
 
-  return { isLoading, error, data };
+  return { isLoading, refetch, error, data };
 };
 
 export { ExamRoutineAPI };

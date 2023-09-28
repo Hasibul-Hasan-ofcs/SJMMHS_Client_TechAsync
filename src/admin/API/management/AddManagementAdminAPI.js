@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 
 const AddManagementAdminAPI = (stName, stDesignation, stPhone_number) => {
   axios
-    .post("http://localhost:5000/management", {
+    .post("https://sjmmhs-server-techasync.vercel.app/management", {
       name: stName,
       designation: stDesignation,
       phone_number: stPhone_number,

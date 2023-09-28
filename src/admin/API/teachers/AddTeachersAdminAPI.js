@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 
 const AddTeachersAdminAPI = (stname, stdesignation, stphone_number) => {
   axios
-    .post("http://localhost:5000/teachers", {
+    .post("https://sjmmhs-server-techasync.vercel.app/teachers", {
       name: stname,
       designation: stdesignation,
       phone_number: stphone_number,

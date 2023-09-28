@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import { AddHolidaysAdminAPI } from "../../../API/holidays/AddHolidaysAdminAPI";
 import {
   Button,
   Dialog,
@@ -5,8 +7,6 @@ import {
   DialogFooter,
   DialogHeader,
 } from "@material-tailwind/react";
-import React, { useState } from "react";
-import { AddHolidaysAdminAPI } from "../../../API/holidays/AddHolidaysAdminAPI";
 
 const AddHoliday = ({ open, handleOpen, refetch }) => {
   const [stTitle, setStTitle] = useState("");
@@ -30,7 +30,7 @@ const AddHoliday = ({ open, handleOpen, refetch }) => {
     setStNoOfDays(e.target.value);
   };
 
-  const controlHandler = (e, stTitle, stDayName, stDate, stNoOfDays) => {
+  const formSubmitHandler = (e, stTitle, stDayName, stDate, stNoOfDays) => {
     e.preventDefault();
 
     const result = AddHolidaysAdminAPI(stTitle, stDayName, stDate, stNoOfDays);
@@ -44,7 +44,7 @@ const AddHoliday = ({ open, handleOpen, refetch }) => {
     <Dialog open={open} handler={handleOpen}>
       <form
         onSubmit={(e) =>
-          controlHandler(e, stTitle, stDayName, stDate, stNoOfDays)
+          formSubmitHandler(e, stTitle, stDayName, stDate, stNoOfDays)
         }
       >
         <DialogHeader>Add Holiday Information</DialogHeader>

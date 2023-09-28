@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const ComputerUsageAPI = () => {
-  const { isLoading, error, data } = useQuery({
+  const { isLoading, refetch, error, data } = useQuery({
     queryKey: ["computerusageapi"],
     queryFn: () =>
       axios
@@ -15,7 +15,7 @@ const ComputerUsageAPI = () => {
         }),
   });
 
-  return { isLoading, error, data };
+  return { isLoading, refetch, error, data };
 };
 
 export { ComputerUsageAPI };

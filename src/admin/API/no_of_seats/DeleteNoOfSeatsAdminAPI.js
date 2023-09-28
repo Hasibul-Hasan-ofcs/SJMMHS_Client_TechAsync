@@ -5,7 +5,7 @@ const DeleteNoOfSeatsAdminAPI = (_id) => {
   const id = _id;
 
   axios
-    .delete(`http://localhost:5000/no-of-seats/${id}`)
+    .delete(`https://sjmmhs-server-techasync.vercel.app/no-of-seats/${id}`)
     .then(function (response) {
       console.log(response);
       Swal.fire("Seat count data successfully deleted!");

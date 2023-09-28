@@ -5,7 +5,7 @@ const DeleteManagementAdminAPI = (_id) => {
   const id = _id;
 
   axios
-    .delete(`http://localhost:5000/management/${id}`)
+    .delete(`https://sjmmhs-server-techasync.vercel.app/management/${id}`)
     .then(function (response) {
       console.log(response);
       Swal.fire("Person successfully deleted!");

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const PhotoGalleryByIdAPI = (id) => {
-  const { isLoading, error, data } = useQuery({
+  const { isLoading, refetch, error, data } = useQuery({
     queryKey: ["photogallerybyidapi"],
     queryFn: () =>
       axios
@@ -15,7 +15,7 @@ const PhotoGalleryByIdAPI = (id) => {
         }),
   });
 
-  return { isLoading, error, data };
+  return { isLoading, refetch, error, data };
 };
 
 export { PhotoGalleryByIdAPI };

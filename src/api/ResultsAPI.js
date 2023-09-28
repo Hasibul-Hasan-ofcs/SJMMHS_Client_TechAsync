@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const ResultAPI = (valueClass, reg) => {
-  const { isLoading, error, data } = useQuery({
+  const { isLoading, refetch, error, data } = useQuery({
     queryKey: ["resultapi"],
     queryFn: () =>
       axios
@@ -17,7 +17,7 @@ const ResultAPI = (valueClass, reg) => {
         }),
   });
 
-  return { isLoading, error, data };
+  return { isLoading, refetch, error, data };
 };
 
 export { ResultAPI };

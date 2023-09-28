@@ -64,6 +64,11 @@ const Sidebar = () => {
             </ActiveRoute>
           </List>
           <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/results">
+              <ListItem>ফলাফল</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
             <ActiveRoute to="/admin/dashboard/holidays">
               <ListItem>ছুটির তালিকা</ListItem>
             </ActiveRoute>
@@ -93,11 +98,6 @@ const Sidebar = () => {
               <ListItem>ব্লগ</ListItem>
             </ActiveRoute>
           </List>
-          {/* <List className="py-[2px]">
-            <ActiveRoute to="/admin/dashboard/holidays">
-              <ListItem>ফলাফল</ListItem>
-            </ActiveRoute>
-          </List> */}
           <List className="py-[2px]">
             <ActiveRoute to="/admin/dashboard/teachers">
               <ListItem>শিক্ষকবৃন্দ</ListItem>

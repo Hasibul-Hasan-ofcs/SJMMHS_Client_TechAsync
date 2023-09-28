@@ -3,16 +3,36 @@ import React, { useState } from "react";
 import { FiPlusCircle } from "react-icons/fi";
 import { Oval } from "react-loader-spinner";
 import { CircularAPI } from "../../../api/CircularAPI";
+import AddCircular from "./add_circular_modal/AddCircular";
+import Swal from "sweetalert2";
+import { DeleteCircularAdminAPI } from "../../API/circular/DeleteCircularAdminAPI";
 
 const TABLE_HEAD = ["সিরিয়াল", "পদ", "ঠিকানা", "বিবরণ", "একশন"];
 
 const CircularAdmin = () => {
   const [open, setOpen] = useState(false);
 
-  const { isLoading, data } = CircularAPI();
+  const { isLoading, refetch, data } = CircularAPI();
 
   const handleOpen = () => {
     setOpen(!open);
+  };
+
+  const onDeleteHandler = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        DeleteCircularAdminAPI(_id);
+        refetch();
+      }
+    });
   };
 
   return (
@@ -22,7 +42,7 @@ const CircularAdmin = () => {
           onClick={handleOpen}
           className="text-white rounded-md bg-[#013C57] w-[250px] py-4 text-base flex items-center justify-center"
         >
-          <FiPlusCircle className="pe-3 text-4xl" /> ADD NEW HOLIDAY
+          <FiPlusCircle className="pe-3 text-4xl" /> ADD NEW CIRCULAR
         </Button>
       </div>
 
@@ -129,6 +149,11 @@ const CircularAdmin = () => {
           </table>
         </Card>
       )}
+      <AddCircular
+        open={open}
+        handleOpen={handleOpen}
+        refetch={refetch}
+      ></AddCircular>
     </div>
   );
 };

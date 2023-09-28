@@ -5,7 +5,7 @@ const DeleteNoticeAdminAPI = (_id) => {
   const id = _id;
 
   axios
-    .delete(`http://localhost:5000/notices/${id}`)
+    .delete(`https://sjmmhs-server-techasync.vercel.app/notices/${id}`)
     .then(function (response) {
       console.log(response);
       Swal.fire("Notice successfully deleted!");

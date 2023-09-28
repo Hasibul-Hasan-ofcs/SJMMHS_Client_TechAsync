@@ -1,17 +1,37 @@
 import React, { useState } from "react";
-import { Button } from "@material-tailwind/react";
+import { Button, Card, Typography } from "@material-tailwind/react";
 import { FiPlusCircle } from "react-icons/fi";
 import { BlogsAPI } from "../../../api/BlogsAPI";
 import { Oval } from "react-loader-spinner";
-import { FaBlogger } from "react-icons/fa";
+import AddBlogs from "./add_blogs_modal/AddBlogs";
+import Swal from "sweetalert2";
+import { DeleteBlogsAdminAPI } from "../../API/blogs/DeleteBlogsAdminAPI";
+
+const TABLE_HEAD = ["সিরিয়াল", "টাইটেল", "বিবরন", "একশন"];
 
 const BlogsAdmin = () => {
   const { isLoading, refetch, data } = BlogsAPI();
-
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(!open);
+  };
+
+  const onDeleteHandler = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        DeleteBlogsAdminAPI(_id);
+        refetch();
+      }
+    });
   };
 
   return (
@@ -41,19 +61,90 @@ const BlogsAdmin = () => {
           />
         </div>
       ) : (
-        <>
-          {data.map(({ title, content, _id }, indx) => (
-            <div
-              className="mx-2 rounded-2xl p-5 flex flex-col gap-4 shadow border my-5"
-              key={_id}
-            >
-              <FaBlogger className="text-[#013c57] text-6xl" />
-              <h2 className="font-bold text-xl">{title}</h2>
-              <p className="">{content}</p>
-            </div>
-          ))}
-        </>
+        <Card className="container mx-auto my-10 h-full w-full overflow-x-scroll no-scrollbar">
+          <table className="w-full min-w-max table-auto text-left">
+            <thead>
+              <tr>
+                {TABLE_HEAD.map((head) => (
+                  <th
+                    key={head}
+                    className="border-b border-[#013c57] bg-[#013c57] p-4"
+                  >
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal leading-none text-white"
+                    >
+                      {head}
+                    </Typography>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {data &&
+                data.map(({ title, content, _id }, index) => {
+                  const isLast = index === data.length - 1;
+                  const classes = isLast
+                    ? "p-4"
+                    : "p-4 border-b border-blue-gray-50";
+
+                  return (
+                    <tr key={_id}>
+                      <td className={classes}>
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal"
+                        >
+                          {index + 1}
+                        </Typography>
+                      </td>
+                      <td className={classes}>
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal w-[200px]"
+                        >
+                          {title}
+                        </Typography>
+                      </td>
+                      <td className={`${classes} bg-blue-gray-50/50`}>
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal w-[200px]"
+                        >
+                          {content}
+                        </Typography>
+                      </td>
+                      <td className={classes}>
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal"
+                        >
+                          <Button
+                            color="red"
+                            className="mx-1"
+                            onClick={() => onDeleteHandler(_id)}
+                          >
+                            Delete
+                          </Button>
+                        </Typography>
+                      </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        </Card>
       )}
+      <AddBlogs
+        open={open}
+        handleOpen={handleOpen}
+        refetch={refetch}
+      ></AddBlogs>
     </div>
   );
 };

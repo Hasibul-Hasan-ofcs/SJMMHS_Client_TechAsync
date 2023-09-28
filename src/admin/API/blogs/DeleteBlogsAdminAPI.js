@@ -5,7 +5,7 @@ const DeleteBlogsAdminAPI = (_id) => {
   const id = _id;
 
   axios
-    .delete(`http://localhost:5000/blogs/${id}`)
+    .delete(`https://sjmmhs-server-techasync.vercel.app/blogs/${id}`)
     .then(function (response) {
       console.log(response);
       Swal.fire("Blog successfully deleted!");

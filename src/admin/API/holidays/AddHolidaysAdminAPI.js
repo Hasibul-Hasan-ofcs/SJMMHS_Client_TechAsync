@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 
 const AddHolidaysAdminAPI = (stTitle, stDayName, stDate, stNoOfDays) => {
   axios
-    .post("http://localhost:5000/holidays", {
+    .post("https://sjmmhs-server-techasync.vercel.app/holidays", {
       holiday: stTitle,
       day: stDayName,
       date: stDate,

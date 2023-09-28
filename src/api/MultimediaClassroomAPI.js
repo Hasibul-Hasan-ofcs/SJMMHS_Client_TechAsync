@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const MultimediaClassRoomAPI = () => {
-  const { isLoading, error, data } = useQuery({
+  const { isLoading, refetch, error, data } = useQuery({
     queryKey: ["multimediaclassroomapi"],
     queryFn: () =>
       axios
@@ -15,7 +15,7 @@ const MultimediaClassRoomAPI = () => {
         }),
   });
 
-  return { isLoading, error, data };
+  return { isLoading, refetch, error, data };
 };
 
 export { MultimediaClassRoomAPI };

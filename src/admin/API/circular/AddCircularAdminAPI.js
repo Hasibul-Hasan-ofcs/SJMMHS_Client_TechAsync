@@ -8,7 +8,7 @@ const AddCircularAdminAPI = (
   stDescription
 ) => {
   axios
-    .post("http://localhost:5000/circular", {
+    .post("https://sjmmhs-server-techasync.vercel.app/circular", {
       Position: stPosition,
       School: stSchool,
       Location: stLocation,

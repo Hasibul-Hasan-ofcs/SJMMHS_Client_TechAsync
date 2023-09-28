@@ -5,7 +5,7 @@ const DeleteStaffAdminAPI = (_id) => {
   const id = _id;
 
   axios
-    .delete(`http://localhost:5000/staff/${id}`)
+    .delete(`https://sjmmhs-server-techasync.vercel.app/staff/${id}`)
     .then(function (response) {
       console.log(response);
       Swal.fire("Staff successfully deleted!");
