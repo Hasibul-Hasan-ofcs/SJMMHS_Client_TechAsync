@@ -22,7 +22,8 @@ const AdmissionInformation = () => {
         স্কুল <br /> হাটাবো, কাঞ্চন, রূপগঞ্জ।
       </p>
       <div className="flex justify-center py-[80px]">
-        <Link
+        <a
+          href="https://educational.deshiit.net/wp-content/uploads/2023/08/form57.pdf"
           to="/admissionform"
           className={`${style.slidingButton} text-white flex items-center justify-center gap-4
           text-base md:text-xl px-5 md:px-20 py-[10px] 
@@ -30,7 +31,7 @@ const AdmissionInformation = () => {
         >
           <BsSend className="text-xl text-white"></BsSend>
           ভর্তি ফরম পূরণ করুন
-        </Link>
+        </a>
       </div>
     </div>
   );
