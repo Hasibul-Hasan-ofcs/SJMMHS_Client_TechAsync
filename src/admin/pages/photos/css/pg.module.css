@@ -1,0 +1,19 @@
+.img_link .span {
+  height: 100%;
+  width: 100%;
+  background-color: #3131313d !important;
+  z-index: 20;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+
+.img_link:hover .span {
+  visibility: visible;
+}
+
+.img_link:hover img {
+  transform: scale(1.2);
+}

@@ -17,7 +17,7 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import { AdminContext } from "../../provider/AdminProvider";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useRoutes } from "react-router-dom";
 
 // profile menu component
 const profileMenuItems = [
@@ -97,6 +97,11 @@ const NavigationBar = () => {
   const [isNavOpen, setIsNavOpen] = React.useState(false);
   const { setSideBarActive } = useContext(AdminContext);
 
+  let routeData = useLocation();
+  routeData = routeData.pathname.split("/");
+  routeData = routeData[routeData.length - 1];
+  console.log(routeData);
+
   const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
 
   React.useEffect(() => {
@@ -112,9 +117,9 @@ const NavigationBar = () => {
         <Typography
           as="a"
           href="#"
-          className="mr-4 ml-2 cursor-pointer py-1.5 font-medium bg-blue-600 text-white uppercase rounded px-4"
+          className="mr-4 ml-2 cursor-pointer py-1.5 font-medium bg-blue-600 text-white rounded-lg px-4"
         >
-          Admin
+          Admin &nbsp; / &nbsp; {routeData}
         </Typography>
 
         <IconButton

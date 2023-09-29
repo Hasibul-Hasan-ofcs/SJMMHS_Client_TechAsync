@@ -6,17 +6,15 @@ import { List, ListItem } from "@material-tailwind/react";
 import ActiveRoute from "../dashboard_active_route/ActiveRoute";
 
 const Sidebar = () => {
-  const contextData = useContext(AdminContext);
-
-  let sideBarActiveData = contextData?.sideBarActive,
-    setSideBarActiveData = contextData?.setSideBarActive;
+  const { sideBarActive, setSideBarActive } = useContext(AdminContext);
+  console.log(sideBarActive);
 
   let cstmStyle, overlayStyle, closeBtnStyle;
 
-  if (sideBarActiveData) {
+  if (sideBarActive) {
     cstmStyle = {
       display: "block",
-      left: 0,
+      left: "0px",
     };
 
     overlayStyle = {
@@ -31,7 +29,7 @@ const Sidebar = () => {
   }
 
   const closeSideBarHandler = () => {
-    if (setSideBarActiveData) setSideBarActiveData(false);
+    if (setSideBarActive) setSideBarActive(false);
   };
 
   return (
@@ -48,7 +46,7 @@ const Sidebar = () => {
       >
         <RxCross1></RxCross1>
       </button>
-      <div className={style.drawer} style={cstmStyle}>
+      <div style={cstmStyle} className={style.drawer}>
         <div className={`${style.drawer_items} flex flex-col gap-2`}>
           <div className="py-9 flex items-center justify-center">
             <img
@@ -76,6 +74,11 @@ const Sidebar = () => {
           <List className="py-[2px]">
             <ActiveRoute to="/admin/dashboard/no-of-rooms">
               <ListItem>কক্ষ সংখ্যা</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/exam-routine">
+              <ListItem>পরিক্ষাসূচি</ListItem>
             </ActiveRoute>
           </List>
           <List className="py-[2px]">
@@ -113,14 +116,29 @@ const Sidebar = () => {
               <ListItem>কর্মকর্তা কর্মচারী</ListItem>
             </ActiveRoute>
           </List>
-          {/* <List className="py-[2px]">
-            <ActiveRoute to="/admin/dashboard/holidays">
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/principal">
+              <ListItem>প্রধান শিক্ষক</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/ex-principal">
               <ListItem>প্রাক্তন প্রধান শিক্ষক</ListItem>
             </ActiveRoute>
-          </List> */}
+          </List>
           <List className="py-[2px]">
             <ActiveRoute to="/admin/dashboard/successful-students">
               <ListItem>কৃতি শিক্ষার্থী</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/photo-gallery">
+              <ListItem>ফটোগ্যালারী</ListItem>
+            </ActiveRoute>
+          </List>
+          <List className="py-[2px]">
+            <ActiveRoute to="/admin/dashboard/video-gallery">
+              <ListItem>ভিডিও গ্যালারী</ListItem>
             </ActiveRoute>
           </List>
         </div>

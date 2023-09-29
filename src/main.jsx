@@ -50,6 +50,11 @@ import TeachersAdmin from "./admin/pages/teachers/TeachersAdmin.jsx";
 import SuccessfulStudentsAdmin from "./admin/pages/successful_students/SuccessfulStudentsAdmin.jsx";
 import ManagementAdmin from "./admin/pages/management/ManagementAdmin.jsx";
 import ResultsAdmin from "./admin/pages/results/ResultsAdmin.jsx";
+import PhotoGalleryAdmin from "./admin/pages/photos/PhotoGalleryAdmin.jsx";
+import ExamRoutineAdmin from "./admin/pages/exam_routine/ExamRoutineAdmin.jsx";
+import VideoGalleryAdmin from "./admin/pages/video/VideoGalleryAdmin.jsx";
+import PrincipalAdmin from "./admin/pages/principal/PrincipalAdmin.jsx";
+import ExPrincipalAdmin from "./admin/pages/ex_principal/ExPrincipalAdmin.jsx";
 
 const queryClient = new QueryClient();
 
@@ -247,6 +252,26 @@ const router = createBrowserRouter([
           {
             path: "/admin/dashboard/results",
             element: <ResultsAdmin></ResultsAdmin>,
+          },
+          {
+            path: "/admin/dashboard/photo-gallery",
+            element: <PhotoGalleryAdmin></PhotoGalleryAdmin>,
+          },
+          {
+            path: "/admin/dashboard/video-gallery",
+            element: <VideoGalleryAdmin></VideoGalleryAdmin>,
+          },
+          {
+            path: "/admin/dashboard/exam-routine",
+            element: <ExamRoutineAdmin></ExamRoutineAdmin>,
+          },
+          {
+            path: "/admin/dashboard/principal",
+            element: <PrincipalAdmin></PrincipalAdmin>,
+          },
+          {
+            path: "/admin/dashboard/ex-principal",
+            element: <ExPrincipalAdmin></ExPrincipalAdmin>,
           },
         ],
       },
