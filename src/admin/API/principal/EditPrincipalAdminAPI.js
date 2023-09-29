@@ -13,7 +13,7 @@ const EditPrincipalAdminAPI = (
   const id = stId;
 
   axios
-    .patch(`http://localhost:5000/principal/${id}`, {
+    .patch(`https://sjmmhs-server-techasync.vercel.app/principal/${id}`, {
       name: stName,
       phone_number: stPhone_number,
       image_link: stImage_link,

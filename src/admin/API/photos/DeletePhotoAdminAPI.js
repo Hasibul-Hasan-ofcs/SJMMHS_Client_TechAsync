@@ -5,7 +5,7 @@ const DeletePhotoAdminAPI = (_id) => {
   const id = _id;
 
   axios
-    .delete(`http://localhost:5000/photo-gallery/${id}`)
+    .delete(`https://sjmmhs-server-techasync.vercel.app/photo-gallery/${id}`)
     .then(function (response) {
       console.log(response);
       Swal.fire("Photo Data successfully deleted!");

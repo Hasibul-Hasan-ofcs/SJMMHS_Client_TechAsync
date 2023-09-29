@@ -10,7 +10,7 @@ const AddPhotoAdminAPI = (
   refetch
 ) => {
   axios
-    .post("http://localhost:5000/photo-gallery", {
+    .post("https://sjmmhs-server-techasync.vercel.app/photo-gallery", {
       main_image_url: stMainImg,
       other_images: [stSubImg1, stSubImg2, stSubImg3],
       context: stContext,
