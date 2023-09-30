@@ -6,7 +6,7 @@ const PhotoGalleryByIdAPI = (id) => {
     queryKey: ["photogallerybyidapi"],
     queryFn: () =>
       axios
-        .get(`http://localhost:5000/photo-gallery/${id}`)
+        .get(`https://sjmmhs-server-techasync.vercel.app/photo-gallery/${id}`)
         .then(function (response) {
           return response.data;
         })

@@ -9,7 +9,7 @@ const AddSuccessfulStudentsAdminAPI = (
 ) => {
   axios
     .post(
-      "http://localhost:5000/successful-students",
+      "https://sjmmhs-server-techasync.vercel.app/successful-students",
       {
         name: stname,
         achievement: stachievement,

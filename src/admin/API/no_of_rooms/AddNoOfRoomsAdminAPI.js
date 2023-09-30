@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const AddNoOfRoomsAdminAPI = (stFloor, stNoOfClasses) => {
   axios
     .post(
-      "http://localhost:5000/no-of-rooms",
+      "https://sjmmhs-server-techasync.vercel.app/no-of-rooms",
       {
         floor: stFloor,
         numberofclasses: stNoOfClasses,

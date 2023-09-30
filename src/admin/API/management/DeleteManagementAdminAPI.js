@@ -5,7 +5,7 @@ const DeleteManagementAdminAPI = (_id) => {
   const id = _id;
 
   axios
-    .delete(`http://localhost:5000/management/${id}`, {
+    .delete(`https://sjmmhs-server-techasync.vercel.app/management/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("access-token")}`,
         "Content-Type": "application/json",

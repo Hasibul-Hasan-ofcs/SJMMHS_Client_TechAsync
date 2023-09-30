@@ -5,7 +5,7 @@ const DeleteCircularAdminAPI = (_id) => {
   const id = _id;
 
   axios
-    .delete(`http://localhost:5000/circular/${id}`, {
+    .delete(`https://sjmmhs-server-techasync.vercel.app/circular/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("access-token")}`,
         "Content-Type": "application/json",

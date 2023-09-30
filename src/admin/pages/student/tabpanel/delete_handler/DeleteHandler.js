@@ -11,13 +11,16 @@ const onDeleteHandler = (_id, value, refetch) => {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`http://localhost:5000/student-info/${value}/${_id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("access-token")}`,
-        },
-      })
+      fetch(
+        `https://sjmmhs-server-techasync.vercel.app/student-info/${value}/${_id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+          },
+        }
+      )
         .then((response) => {
           if (response.status === 200) {
             Swal.fire("Deleted!", "Your file has been deleted.", "success");

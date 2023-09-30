@@ -6,7 +6,7 @@ const ExamRoutineAPI = () => {
     queryKey: ["examroutineapi"],
     queryFn: () =>
       axios
-        .get("http://localhost:5000/exam-routine")
+        .get("https://sjmmhs-server-techasync.vercel.app/exam-routine")
         .then(function (response) {
           return response.data;
         })

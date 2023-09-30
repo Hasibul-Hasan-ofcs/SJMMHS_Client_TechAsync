@@ -14,7 +14,7 @@ const EditExPrincipalAdminAPI = (
 
   axios
     .patch(
-      `http://localhost:5000/ex-principal/${id}`,
+      `https://sjmmhs-server-techasync.vercel.app/ex-principal/${id}`,
       {
         name: stName,
         phone_number: stPhone_number,

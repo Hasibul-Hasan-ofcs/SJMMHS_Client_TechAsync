@@ -5,12 +5,15 @@ const DeleteSuccessfulStudentsAdminAPI = (_id) => {
   const id = _id;
 
   axios
-    .delete(`http://localhost:5000/successful-students/${id}`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("access-token")}`,
-        "Content-Type": "application/json",
-      },
-    })
+    .delete(
+      `https://sjmmhs-server-techasync.vercel.app/successful-students/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+          "Content-Type": "application/json",
+        },
+      }
+    )
     .then(function (response) {
       console.log(response);
       Swal.fire("Successful student data successfully deleted!");

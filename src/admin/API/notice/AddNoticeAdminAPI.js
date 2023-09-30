@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const AddNoticeAdminAPI = (stDate, stNotice) => {
   axios
     .post(
-      "http://localhost:5000/notices",
+      "https://sjmmhs-server-techasync.vercel.app/notices",
       {
         date: stDate,
         notice: stNotice,

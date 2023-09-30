@@ -5,7 +5,7 @@ const DeleteHolidaysAdminAPI = (_id) => {
   const id = _id;
 
   axios
-    .delete(`http://localhost:5000/holidays/${id}`, {
+    .delete(`https://sjmmhs-server-techasync.vercel.app/holidays/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("access-token")}`,
         "Content-Type": "application/json",

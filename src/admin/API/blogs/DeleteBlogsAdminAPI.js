@@ -5,7 +5,7 @@ const DeleteBlogsAdminAPI = (_id) => {
   const id = _id;
 
   axios
-    .delete(`http://localhost:5000/blogs/${id}`, {
+    .delete(`https://sjmmhs-server-techasync.vercel.app/blogs/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("access-token")}`,
         "Content-Type": "application/json",

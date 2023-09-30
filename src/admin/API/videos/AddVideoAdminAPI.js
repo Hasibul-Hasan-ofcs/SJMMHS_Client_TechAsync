@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const AddVideoAdminAPI = (stContext, stMainVideoUrl, refetch) => {
   axios
     .post(
-      "http://localhost:5000/video-gallery",
+      "https://sjmmhs-server-techasync.vercel.app/video-gallery",
       {
         video_url: stMainVideoUrl,
         context: stContext,

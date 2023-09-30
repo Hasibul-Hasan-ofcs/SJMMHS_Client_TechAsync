@@ -13,7 +13,7 @@ const EditResultAdminAPI = (
   const id = _id;
   axios
     .patch(
-      `http://localhost:5000/result/${value}/${id}`,
+      `https://sjmmhs-server-techasync.vercel.app/result/${value}/${id}`,
       {
         name: stName,
         rege: stRegE,

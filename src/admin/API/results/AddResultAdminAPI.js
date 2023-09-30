@@ -5,7 +5,7 @@ const AddResultAdminAPI = (stName, stRegE, stRegB, stResult, classValue) => {
   const value = classValue;
   axios
     .post(
-      `http://localhost:5000/result/${value}`,
+      `https://sjmmhs-server-techasync.vercel.app/result/${value}`,
       {
         name: stName,
         rege: stRegE,

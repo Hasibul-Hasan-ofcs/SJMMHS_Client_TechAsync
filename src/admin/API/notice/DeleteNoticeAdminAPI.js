@@ -5,7 +5,7 @@ const DeleteNoticeAdminAPI = (_id) => {
   const id = _id;
 
   axios
-    .delete(`http://localhost:5000/notices/${id}`, {
+    .delete(`https://sjmmhs-server-techasync.vercel.app/notices/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("access-token")}`,
         "Content-Type": "application/json",

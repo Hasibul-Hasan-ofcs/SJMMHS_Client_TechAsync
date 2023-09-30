@@ -6,7 +6,7 @@ const PrincipalAPI = () => {
     queryKey: ["principalapi"],
     queryFn: () =>
       axios
-        .get("http://localhost:5000/principal")
+        .get("https://sjmmhs-server-techasync.vercel.app/principal")
         .then(function (response) {
           return response.data;
         })

@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const AddBlogsAdminAPI = (stTitle, stContent) => {
   axios
     .post(
-      "http://localhost:5000/blogs",
+      "https://sjmmhs-server-techasync.vercel.app/blogs",
       {
         title: stTitle,
         content: stContent,

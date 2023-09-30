@@ -3,14 +3,17 @@ import Swal from "sweetalert2";
 const editHandler = (e, _id, value, refetch, stName, stReg) => {
   e.preventDefault();
 
-  fetch(`http://localhost:5000/student-info/${value}/${_id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("access-token")}`,
-    },
-    body: JSON.stringify({ name: stName, reg: stReg }),
-  })
+  fetch(
+    `https://sjmmhs-server-techasync.vercel.app/student-info/${value}/${_id}`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+      },
+      body: JSON.stringify({ name: stName, reg: stReg }),
+    }
+  )
     .then((response) => {
       if (response.status === 200) {
         console.log(response);

@@ -6,7 +6,7 @@ const BlogsAPI = () => {
     queryKey: ["blogsapi"],
     queryFn: () =>
       axios
-        .get("http://localhost:5000/blogs")
+        .get("https://sjmmhs-server-techasync.vercel.app/blogs")
         .then(function (response) {
           return response.data;
         })

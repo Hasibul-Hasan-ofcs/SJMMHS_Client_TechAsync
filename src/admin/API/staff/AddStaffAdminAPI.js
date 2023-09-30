@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const AddStaffAdminAPI = (stname, stdesignation, stphone_number) => {
   axios
     .post(
-      "http://localhost:5000/staff",
+      "https://sjmmhs-server-techasync.vercel.app/staff",
       {
         name: stname,
         designation: stdesignation,

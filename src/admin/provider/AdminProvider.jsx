@@ -33,7 +33,7 @@ const AdminProvider = ({ children }) => {
 
       if (loggedInUser) {
         axios
-          .post("http://localhost:5000/jwt", {
+          .post("https://sjmmhs-server-techasync.vercel.app/jwt", {
             email: loggedInUser.email,
           })
           .then((data) => {

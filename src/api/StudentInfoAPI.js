@@ -6,7 +6,7 @@ const StudentInfoAPI = (value) => {
     ["studentinfoapi", value],
     () =>
       axios
-        .get(`http://localhost:5000/student-info/${value}`)
+        .get(`https://sjmmhs-server-techasync.vercel.app/student-info/${value}`)
         .then(function (response) {
           return response.data;
         })

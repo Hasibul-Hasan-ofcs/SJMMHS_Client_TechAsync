@@ -6,7 +6,7 @@ const ResultsAllAPI = (value) => {
     queryKey: ["resultsallapi", value],
     queryFn: () =>
       axios
-        .get(`http://localhost:5000/result/${value}`)
+        .get(`https://sjmmhs-server-techasync.vercel.app/result/${value}`)
         .then(function (response) {
           return response.data;
         })
