@@ -35,7 +35,7 @@ const HolidaysAdmin = () => {
   };
 
   return (
-    <div className="py-8 pe-6">
+    <div className="py-8 px-1">
       <div className="flex items-center justify-center py-10">
         <Button
           onClick={handleOpen}
