@@ -1,9 +1,17 @@
-import React from "react";
-import { Button, Card, Typography } from "@material-tailwind/react";
+import React, { useState } from "react";
 import { Oval } from "react-loader-spinner";
 import { NoticeAPI } from "../../api/NoticeAPI";
 import SetPageTitle from "../../components/page_title/SetPageTitle";
 import CustomUnderline from "../../components/custom_underline/CustomUnderline";
+import {
+  Button,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+  Card,
+  Typography,
+} from "@material-tailwind/react";
 
 const TABLE_HEAD = ["সিরিয়াল", "তারিখ", "নোটিশ", "ভিউ"];
 
@@ -11,6 +19,15 @@ export function Notice() {
   SetPageTitle("নোটিশ");
 
   const { isLoading, data } = NoticeAPI();
+  const [open, setOpen] = useState(false);
+  const [stDate, setDate] = useState("");
+  const [stNotice, setNotice] = useState("");
+
+  const handleOpen = (date, notice) => {
+    setOpen(!open);
+    setDate(date);
+    setNotice(notice);
+  };
 
   return (
     <div className="container mx-auto min-h-[400px] my-14 bg-white rounded-2xl">
@@ -94,6 +111,7 @@ export function Notice() {
                         variant="small"
                         color="blue-gray"
                         className="font-normal"
+                        onClick={() => handleOpen(date, notice)}
                       >
                         <Button>View</Button>
                       </Typography>
@@ -105,6 +123,16 @@ export function Notice() {
           </table>
         </Card>
       )}
+
+      <Dialog open={open} handler={handleOpen}>
+        <DialogHeader>{stDate}</DialogHeader>
+        <DialogBody divider>{stNotice}</DialogBody>
+        <DialogFooter>
+          <Button variant="gradient" color="green" onClick={handleOpen}>
+            <span>OK</span>
+          </Button>
+        </DialogFooter>
+      </Dialog>
     </div>
   );
 }
