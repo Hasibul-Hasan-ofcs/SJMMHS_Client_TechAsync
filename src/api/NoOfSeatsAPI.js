@@ -6,7 +6,7 @@ const NoOfSeatsAPI = () => {
     queryKey: ["noofseats"],
     queryFn: () =>
       axios
-        .get("https://sjmmhs-server-techasync.vercel.app/no-of-seats")
+        .get("http://localhost:5000/no-of-seats")
         .then(function (response) {
           return response.data;
         })

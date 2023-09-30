@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import axios from "axios";
 
 export const AdminContext = createContext(null);
 
@@ -29,6 +30,21 @@ const AdminProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (loggedInUser) => {
       setUser(loggedInUser);
+
+      if (loggedInUser) {
+        axios
+          .post("http://localhost:5000/jwt", {
+            email: loggedInUser.email,
+          })
+          .then((data) => {
+            localStorage.setItem("access-token", data.data.token);
+            console.log(data);
+            setLoading(false);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
+
       setLoading(false);
     });
 

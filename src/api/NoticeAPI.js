@@ -6,7 +6,7 @@ const NoticeAPI = () => {
     queryKey: ["notices"],
     queryFn: () =>
       axios
-        .get("https://sjmmhs-server-techasync.vercel.app/notices")
+        .get("http://localhost:5000/notices")
         .then(function (response) {
           return response.data;
         })

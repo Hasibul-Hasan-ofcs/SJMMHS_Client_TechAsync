@@ -6,7 +6,7 @@ const VideosAPI = () => {
     queryKey: ["videosapi"],
     queryFn: () =>
       axios
-        .get("https://sjmmhs-server-techasync.vercel.app/video-gallery")
+        .get("http://localhost:5000/video-gallery")
         .then(function (response) {
           return response.data;
         })

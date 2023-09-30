@@ -6,7 +6,7 @@ const MultimediaClassRoomAPI = () => {
     queryKey: ["multimediaclassroomapi"],
     queryFn: () =>
       axios
-        .get("https://sjmmhs-server-techasync.vercel.app/multimedia-classroom")
+        .get("http://localhost:5000/multimedia-classroom")
         .then(function (response) {
           return response.data;
         })

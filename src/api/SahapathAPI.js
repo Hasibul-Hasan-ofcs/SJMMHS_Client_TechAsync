@@ -6,7 +6,7 @@ const SahapathAPI = () => {
     queryKey: ["sahapathapi"],
     queryFn: () =>
       axios
-        .get("https://sjmmhs-server-techasync.vercel.app/sahapath")
+        .get("http://localhost:5000/sahapath")
         .then(function (response) {
           return response.data;
         })

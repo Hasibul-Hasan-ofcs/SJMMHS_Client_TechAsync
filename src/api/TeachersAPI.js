@@ -6,7 +6,7 @@ const TeachersAPI = () => {
     queryKey: ["teachersapi"],
     queryFn: () =>
       axios
-        .get("https://sjmmhs-server-techasync.vercel.app/teachers")
+        .get("http://localhost:5000/teachers")
         .then(function (response) {
           return response.data;
         })

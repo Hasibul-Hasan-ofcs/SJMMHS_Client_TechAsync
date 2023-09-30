@@ -5,7 +5,12 @@ const DeleteNoOfRoomsAdminAPI = (_id) => {
   const id = _id;
 
   axios
-    .delete(`https://sjmmhs-server-techasync.vercel.app/no-of-rooms/${id}`)
+    .delete(`http://localhost:5000/no-of-rooms/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+        "Content-Type": "application/json",
+      },
+    })
     .then(function (response) {
       console.log(response);
       Swal.fire("Room count data successfully deleted!");

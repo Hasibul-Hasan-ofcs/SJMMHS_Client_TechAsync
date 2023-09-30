@@ -6,7 +6,7 @@ const CircularAPI = () => {
     queryKey: ["circularapi"],
     queryFn: () =>
       axios
-        .get("https://sjmmhs-server-techasync.vercel.app/circular")
+        .get("http://localhost:5000/circular")
         .then(function (response) {
           return response.data;
         })

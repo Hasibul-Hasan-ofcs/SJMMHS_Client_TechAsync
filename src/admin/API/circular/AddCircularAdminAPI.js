@@ -8,12 +8,21 @@ const AddCircularAdminAPI = (
   stDescription
 ) => {
   axios
-    .post("https://sjmmhs-server-techasync.vercel.app/circular", {
-      Position: stPosition,
-      School: stSchool,
-      Location: stLocation,
-      Description: stDescription,
-    })
+    .post(
+      "http://localhost:5000/circular",
+      {
+        Position: stPosition,
+        School: stSchool,
+        Location: stLocation,
+        Description: stDescription,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+          "Content-Type": "application/json",
+        },
+      }
+    )
     .then(function (response) {
       Swal.fire("Circular successfully added!");
       return response;

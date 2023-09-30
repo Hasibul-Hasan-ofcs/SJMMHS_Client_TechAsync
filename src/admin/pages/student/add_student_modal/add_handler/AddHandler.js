@@ -3,10 +3,11 @@ import Swal from "sweetalert2";
 const addHandler = (stName, stReg, classValue) => {
   const value = classValue;
 
-  fetch(`https://sjmmhs-server-techasync.vercel.app/student-info/${value}`, {
+  fetch(`http://localhost:5000/student-info/${value}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("access-token")}`,
     },
     body: JSON.stringify({ name: stName, reg: stReg }),
   })

@@ -6,7 +6,7 @@ const PhysicalStructureAPI = () => {
     queryKey: ["physicalstructureapi"],
     queryFn: () =>
       axios
-        .get("https://sjmmhs-server-techasync.vercel.app/physical-structure")
+        .get("http://localhost:5000/physical-structure")
         .then(function (response) {
           return response.data;
         })

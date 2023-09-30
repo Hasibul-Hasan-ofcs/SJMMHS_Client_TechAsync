@@ -6,7 +6,7 @@ const ManagementAPI = () => {
     queryKey: ["managementapi"],
     queryFn: () =>
       axios
-        .get("https://sjmmhs-server-techasync.vercel.app/management")
+        .get("http://localhost:5000/management")
         .then(function (response) {
           return response.data;
         })

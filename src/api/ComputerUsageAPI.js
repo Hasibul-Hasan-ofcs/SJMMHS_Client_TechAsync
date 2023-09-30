@@ -6,7 +6,7 @@ const ComputerUsageAPI = () => {
     queryKey: ["computerusageapi"],
     queryFn: () =>
       axios
-        .get("https://sjmmhs-server-techasync.vercel.app/computer-usage")
+        .get("http://localhost:5000/computer-usage")
         .then(function (response) {
           return response.data;
         })

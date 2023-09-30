@@ -6,7 +6,7 @@ const ExPrincipalAPI = () => {
     queryKey: ["exprincipalapi"],
     queryFn: () =>
       axios
-        .get("https://sjmmhs-server-techasync.vercel.app/ex-principal")
+        .get("http://localhost:5000/ex-principal")
         .then(function (response) {
           return response.data;
         })

@@ -6,7 +6,7 @@ const SuccessfulStudentsAPI = () => {
     queryKey: ["successfulstudentsapi"],
     queryFn: () =>
       axios
-        .get("https://sjmmhs-server-techasync.vercel.app/successful-students")
+        .get("http://localhost:5000/successful-students")
         .then(function (response) {
           return response.data;
         })

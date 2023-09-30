@@ -5,7 +5,12 @@ const DeleteResultAdminAPI = (_id, value) => {
   const id = _id;
 
   axios
-    .delete(`https://sjmmhs-server-techasync.vercel.app/result/${value}/${id}`)
+    .delete(`http://localhost:5000/result/${value}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+        "Content-Type": "application/json",
+      },
+    })
     .then(function (response) {
       console.log(response);
       Swal.fire("Result successfully deleted!");

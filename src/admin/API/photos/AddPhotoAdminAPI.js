@@ -10,11 +10,20 @@ const AddPhotoAdminAPI = (
   refetch
 ) => {
   axios
-    .post("https://sjmmhs-server-techasync.vercel.app/photo-gallery", {
-      main_image_url: stMainImg,
-      other_images: [stSubImg1, stSubImg2, stSubImg3],
-      context: stContext,
-    })
+    .post(
+      "http://localhost:5000/photo-gallery",
+      {
+        main_image_url: stMainImg,
+        other_images: [stSubImg1, stSubImg2, stSubImg3],
+        context: stContext,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+          "Content-Type": "application/json",
+        },
+      }
+    )
     .then(function (response) {
       Swal.fire("Photo Data successfully added!");
       refetch();

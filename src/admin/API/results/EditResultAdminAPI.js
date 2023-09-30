@@ -12,12 +12,21 @@ const EditResultAdminAPI = (
 ) => {
   const id = _id;
   axios
-    .patch(`https://sjmmhs-server-techasync.vercel.app/result/${value}/${id}`, {
-      name: stName,
-      rege: stRegE,
-      regb: stRegB,
-      result: stResult,
-    })
+    .patch(
+      `http://localhost:5000/result/${value}/${id}`,
+      {
+        name: stName,
+        rege: stRegE,
+        regb: stRegB,
+        result: stResult,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+          "Content-Type": "application/json",
+        },
+      }
+    )
     .then(function (response) {
       Swal.fire("Result successfully Updated!");
       refetch();

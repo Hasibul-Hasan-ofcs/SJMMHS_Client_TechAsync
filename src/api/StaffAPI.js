@@ -6,7 +6,7 @@ const StaffAPI = () => {
     queryKey: ["staffapi"],
     queryFn: () =>
       axios
-        .get("https://sjmmhs-server-techasync.vercel.app/staff")
+        .get("http://localhost:5000/staff")
         .then(function (response) {
           return response.data;
         })
