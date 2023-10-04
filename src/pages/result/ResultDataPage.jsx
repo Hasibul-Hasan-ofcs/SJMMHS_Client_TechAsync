@@ -13,27 +13,34 @@ const ResultDataPage = () => {
         <>Loading...</>
       ) : (
         <>
-          {data.map((el, indx) => (
-            <div className="my-6 bg-white p-4" key={el}>
-              <img
-                src="https://st2.depositphotos.com/14903220/46378/v/450/depositphotos_463781336-stock-illustration-man-avatar-graphic-sign-anonymous.jpg"
-                alt="default image"
-                className="w-[200px]"
-              />
-              <p className="text-2xl text-[#013c57] font-bold">
-                <span>Name: </span>
-                {el.name}
-              </p>
-              <p className="text-2xl text-[#013c57] font-bold">
-                <span>Registartion No: </span>
-                {el.regb}
-              </p>
-              <p className="text-2xl text-[#013c57] font-bold">
-                <span>Result: </span>
-                {el.result}
-              </p>
-            </div>
-          ))}
+          {data.length == 0 ? (
+            <p className="text-center text-red-700 text-xl font-bold">
+              Result Not Found!
+            </p>
+          ) : (
+            data.map((el, indx) => (
+              <div className="my-6 bg-white p-4" key={el}>
+                <div className="flex justify-center">
+                  <img
+                    src="https://st2.depositphotos.com/14903220/46378/v/450/depositphotos_463781336-stock-illustration-man-avatar-graphic-sign-anonymous.jpg"
+                    alt="default image"
+                    className="w-[100px]"
+                  />
+                </div>
+                <p className="text-3xl text-[#013c57] font-bold py-4 text-center">
+                  {el.name}
+                </p>
+                <p className="text-2xl text-[#013c57] font-bold text-center">
+                  <span>Registartion No: </span>
+                  {el.regb}
+                </p>
+                <p className="text-2xl text-[#013c57] font-bold text-center">
+                  <span>Result: </span>
+                  <span className="text-green-800 text-4xl">{el.result}</span>
+                </p>
+              </div>
+            ))
+          )}
         </>
       )}
     </div>
