@@ -5,15 +5,17 @@ import { AdminContext } from "../../provider/AdminProvider";
 import { Oval } from "react-loader-spinner";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
   const [recaptchaValue, setRecaptchaValue] = useState(null);
   const [rcWarning, setRCWarning] = useState(false);
 
-  const { login, loading, setLoading } = useContext(AdminContext);
+  const { login, loading, setLoading, user } = useContext(AdminContext);
 
   const navigate = useNavigate();
+
+  if (user) navigate("/admin/dashboard/student-information");
 
   const onChange = (value) => {
     setRecaptchaValue(value);
@@ -54,11 +56,13 @@ const AdminLogin = () => {
     <div className="flex min-h-[100vh] items-center justify-center">
       <Card color="transparent" shadow={false} className="p-4">
         <Typography variant="h4" color="blue-gray">
-          <img
-            src="/png/deshiit.png"
-            alt="IT image"
-            className="bg-[#013c57] rounded-xl w-[150px] mb-3"
-          />
+          <Link to="/">
+            <img
+              src="/png/deshiit.png"
+              alt="IT image"
+              className="bg-[#013c57] rounded-xl w-[150px] mb-3"
+            />
+          </Link>
         </Typography>
         <Typography color="gray" className="mt-1 font-normal">
           Enter your details to login.
