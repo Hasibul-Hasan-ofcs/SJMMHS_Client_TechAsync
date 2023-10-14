@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Dialog,
@@ -9,6 +9,8 @@ import {
 import { EditPrincipalAdminAPI } from "../../../API/principal/EditPrincipalAdminAPI";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { BsCloudUploadFill } from "react-icons/bs";
+import { Oval } from "react-loader-spinner";
 
 const EditPrincipal = ({
   open,
@@ -26,6 +28,8 @@ const EditPrincipal = ({
   setStDesignation,
   setStDescription,
 }) => {
+  const [loadingM, setLoadingM] = useState(false);
+
   const setNameHandler = (e) => {
     setStName(e.target.value);
   };
@@ -38,6 +42,7 @@ const EditPrincipal = ({
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${image_upload_api_key}`;
     const formData = new FormData();
     formData.append("image", imgFile);
+    setLoadingM(true);
     fetch(img_hosting_url, {
       method: "POST",
       body: formData,
@@ -47,6 +52,7 @@ const EditPrincipal = ({
         if (imgRes.success) {
           const img_url = imgRes.data.display_url;
           setStImage_link(img_url);
+          setLoadingM(false);
         } else {
           toast("Image upload failed Please try again!", {
             position: "top-right",
@@ -58,6 +64,7 @@ const EditPrincipal = ({
             progress: undefined,
             theme: "light",
           });
+          setLoadingM(false);
         }
       });
   };
@@ -118,13 +125,42 @@ const EditPrincipal = ({
             placeholder="Description"
             className="border border-gray-500 rounded p-3 text-base w-full my-4 shadow"
           />
-          <input
-            type="file"
-            name="imgFile"
-            onChange={setImage_linkHandler}
-            placeholder="Image Link"
-            className="border border-gray-500 rounded p-3 text-base w-full my-4 shadow"
-          />
+          <div className="relative border rounded-lg shadow cursor-pointer mt-4 py-4 overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center cursor-pointer">
+              <BsCloudUploadFill className="text-3xl cursor-pointer" />
+              <p className="text-center cursor-pointer truncate">
+                {stImage_link}
+              </p>
+              <p className="text-center cursor-pointer">
+                Upload Headteacher Image
+              </p>
+            </div>
+
+            {loadingM ? (
+              <div className="flex justify-center items-center">
+                <Oval
+                  height={80}
+                  width={80}
+                  color="#013c57"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                  visible={true}
+                  ariaLabel="oval-loading"
+                  secondaryColor="#013c57"
+                  strokeWidth={2}
+                  strokeWidthSecondary={2}
+                />
+              </div>
+            ) : (
+              <input
+                type="file"
+                name="imgFile"
+                onChange={setImage_linkHandler}
+                placeholder="Image Link"
+                className="border border-gray-500 rounded p-3 text-base w-full shadow opacity-0"
+              />
+            )}
+          </div>
         </DialogBody>
         <DialogFooter>
           <Button
