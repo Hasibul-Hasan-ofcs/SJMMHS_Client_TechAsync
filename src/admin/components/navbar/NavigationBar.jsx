@@ -18,6 +18,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { AdminContext } from "../../provider/AdminProvider";
 import { useLocation, useNavigate, useRoutes } from "react-router-dom";
+import style from "./css/NavigationBar.module.css";
 
 // profile menu component
 const profileMenuItems = [
@@ -43,7 +44,7 @@ function ProfileMenu() {
         <Button
           variant="text"
           color="blue-gray"
-          className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
+          className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5"
         >
           <Avatar
             variant="circular"
@@ -122,17 +123,19 @@ const NavigationBar = () => {
           Admin &nbsp; / &nbsp; {routeData}
         </Typography>
 
-        <IconButton
-          size="sm"
-          color="blue-gray"
-          variant="text"
-          // onClick={toggleIsNavOpen}
-          onClick={() => setSideBarActive(true)}
-          className="ml-auto mr-2 lg:hidden"
-        >
-          <Bars2Icon className="h-6 w-6" />
-        </IconButton>
-        <ProfileMenu />
+        <div className="ml-auto flex items-center">
+          <IconButton
+            size="sm"
+            color="blue-gray"
+            variant="text"
+            // onClick={toggleIsNavOpen}
+            onClick={() => setSideBarActive(true)}
+            className={`ml-auto mr-2 ${style.hmbutton}`}
+          >
+            <Bars2Icon className="h-6 w-6" />
+          </IconButton>
+          <ProfileMenu />
+        </div>
       </div>
     </Navbar>
   );

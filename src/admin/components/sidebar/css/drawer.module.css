@@ -59,6 +59,11 @@
 
 @media (max-width: 1024px) {
   .drawer {
+  }
+}
+
+@media (max-width: 1024px) {
+  .drawer {
     left: -320px;
   }
 }

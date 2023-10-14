@@ -1,0 +1,9 @@
+@media (min-width: 1024px) {
+  .dashboard_main {
+    width: calc(100% - 320px);
+  }
+
+  .side_box {
+    width: 320px;
+  }
+}
