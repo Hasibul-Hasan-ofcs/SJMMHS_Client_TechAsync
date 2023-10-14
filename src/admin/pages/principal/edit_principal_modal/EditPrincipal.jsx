@@ -7,6 +7,8 @@ import {
   DialogHeader,
 } from "@material-tailwind/react";
 import { EditPrincipalAdminAPI } from "../../../API/principal/EditPrincipalAdminAPI";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const EditPrincipal = ({
   open,
@@ -31,8 +33,33 @@ const EditPrincipal = ({
     setStPhone_number(e.target.value);
   };
   const setImage_linkHandler = (e) => {
-    return console.log(e.target.value);
-    setStImage_link(e.target.value);
+    const imgFile = e.target.files[0];
+    const image_upload_api_key = import.meta.env.VITE_Image_Upload_Api_Key;
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${image_upload_api_key}`;
+    const formData = new FormData();
+    formData.append("image", imgFile);
+    fetch(img_hosting_url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgRes) => {
+        if (imgRes.success) {
+          const img_url = imgRes.data.display_url;
+          setStImage_link(img_url);
+        } else {
+          toast("Image upload failed Please try again!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      });
   };
   const setDesignationHandler = (e) => {
     setStDesignation(e.target.value);
@@ -91,11 +118,10 @@ const EditPrincipal = ({
             placeholder="Description"
             className="border border-gray-500 rounded p-3 text-base w-full my-4 shadow"
           />
-
           <input
             type="file"
+            name="imgFile"
             onChange={setImage_linkHandler}
-            required
             placeholder="Image Link"
             className="border border-gray-500 rounded p-3 text-base w-full my-4 shadow"
           />
@@ -119,6 +145,7 @@ const EditPrincipal = ({
           </Button>
         </DialogFooter>
       </form>
+      <ToastContainer />
     </Dialog>
   );
 };

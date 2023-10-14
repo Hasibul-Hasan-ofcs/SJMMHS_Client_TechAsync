@@ -31,7 +31,33 @@ const EditExPrincipal = ({
     setStPhone_number(e.target.value);
   };
   const setImage_linkHandler = (e) => {
-    setStImage_link(e.target.value);
+    const imgFile = e.target.files[0];
+    const image_upload_api_key = import.meta.env.VITE_Image_Upload_Api_Key;
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${image_upload_api_key}`;
+    const formData = new FormData();
+    formData.append("image", imgFile);
+    fetch(img_hosting_url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgRes) => {
+        if (imgRes.success) {
+          const img_url = imgRes.data.display_url;
+          setStImage_link(img_url);
+        } else {
+          toast("Image upload failed Please try again!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      });
   };
   const setDesignationHandler = (e) => {
     setStDesignation(e.target.value);
@@ -76,14 +102,6 @@ const EditExPrincipal = ({
           />
           <input
             type="text"
-            value={stImage_link}
-            onChange={setImage_linkHandler}
-            required
-            placeholder="Image Link"
-            className="border border-gray-500 rounded p-3 text-base w-full my-4 shadow"
-          />
-          <input
-            type="text"
             value={stDesignation}
             onChange={setDesignationHandler}
             required
@@ -96,6 +114,13 @@ const EditExPrincipal = ({
             onChange={setDescriptionHandler}
             required
             placeholder="Description"
+            className="border border-gray-500 rounded p-3 text-base w-full my-4 shadow"
+          />
+          <input
+            type="file"
+            name="imgFile"
+            onChange={setImage_linkHandler}
+            placeholder="Image Link"
             className="border border-gray-500 rounded p-3 text-base w-full my-4 shadow"
           />
         </DialogBody>

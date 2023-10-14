@@ -92,7 +92,7 @@ const ExPrincipalAdmin = () => {
                     </a>
                   </div>
                 </div>
-                <div className="w-full lg:w-[70%] flex gap-4 flex-col">
+                <div className="w-full flex gap-4 flex-col">
                   <h1 className="text-4xl text-[#051939]">{name}</h1>
                   <p className="text-[#9A462D]">
                     {designation} <br /> নাম্বার : {phone_number}
