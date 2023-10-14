@@ -31,6 +31,7 @@ const EditPrincipal = ({
     setStPhone_number(e.target.value);
   };
   const setImage_linkHandler = (e) => {
+    return console.log(e.target.value);
     setStImage_link(e.target.value);
   };
   const setDesignationHandler = (e) => {
@@ -76,14 +77,6 @@ const EditPrincipal = ({
           />
           <input
             type="text"
-            value={stImage_link}
-            onChange={setImage_linkHandler}
-            required
-            placeholder="Image Link"
-            className="border border-gray-500 rounded p-3 text-base w-full my-4 shadow"
-          />
-          <input
-            type="text"
             value={stDesignation}
             onChange={setDesignationHandler}
             required
@@ -96,6 +89,14 @@ const EditPrincipal = ({
             onChange={setDescriptionHandler}
             required
             placeholder="Description"
+            className="border border-gray-500 rounded p-3 text-base w-full my-4 shadow"
+          />
+
+          <input
+            type="file"
+            onChange={setImage_linkHandler}
+            required
+            placeholder="Image Link"
             className="border border-gray-500 rounded p-3 text-base w-full my-4 shadow"
           />
         </DialogBody>

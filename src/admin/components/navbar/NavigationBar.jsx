@@ -113,7 +113,7 @@ const NavigationBar = () => {
   }, []);
 
   return (
-    <Navbar className="mx-auto max-w-[1200px] p-2 lg:rounded-2 sticky top-5 left-3 z-50 border border-gray-300">
+    <Navbar className="mx-auto max-w-[1200px] p-2 lg:rounded-2 sticky top-5 left-3 z-[1] border border-gray-300">
       <div className="relative mx-auto flex items-center text-blue-gray-900">
         <Typography
           as="a"
